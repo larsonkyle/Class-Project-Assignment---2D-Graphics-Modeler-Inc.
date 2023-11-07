@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string> Login System</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="screen.qrc">
+    <normaloff>:/images/loginWindow.png</normaloff>:/images/loginWindow.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#centralWidget{
+
+border-image: url(:/images/background.jpg);
+
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">#centralwidget{
+
+border-image: url(:/images/background.jpg)
+
+}
+</string>
+   </property>
+   <widget class="QWidget" name="headwidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>30</y>
+      <width>141</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#headwidget{
+
+border-image:url(:/images/loginIcon.png);
+
+}</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>160</y>
+      <width>221</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:700; color:#000000;&quot;&gt;2D Painter Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="loginBox">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>230</y>
+      <width>281</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#loginBox{
+
+background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(170, 255, 127, 255), stop:1 rgba(0, 170, 255, 255));
+border-radius: 8px;
+
+
+font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+
+}</string>
+    </property>
+    <property name="title">
+     <string>Please Login</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p/&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;Username&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="username">
+         <property name="styleSheet">
+          <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="password">
+         <property name="styleSheet">
+          <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Loginbutton">
+       <property name="styleSheet">
+        <string notr="true">background:rgb(255, 255, 127);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Login</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="screen.qrc"/>
+ </resources>
+ <connections/>
+</ui>

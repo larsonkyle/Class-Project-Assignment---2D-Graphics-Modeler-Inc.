@@ -94,14 +94,14 @@ color: rgb(0, 0, 0);
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="label_username">
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p/&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;Username&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="username">
+        <widget class="QLineEdit" name="lineEdit_username">
          <property name="styleSheet">
           <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
          </property>
@@ -112,14 +112,14 @@ color: rgb(0, 0, 0);
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="label_password">
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="password">
+        <widget class="QLineEdit" name="lineEdit_password">
          <property name="styleSheet">
           <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
          </property>

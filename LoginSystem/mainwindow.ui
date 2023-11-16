@@ -83,27 +83,45 @@ border-radius: 8px;
 
 
 font: 700 14pt &quot;Segoe UI&quot;;
-color: rgb(0, 0, 0);
+color: rgb(245, 255, 253);
 
 }</string>
     </property>
     <property name="title">
-     <string>Please Login</string>
+     <string>Account Login</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QLabel" name="label_username">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p/&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;Username&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#e9faf3;&quot;&gt;Username&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="lineEdit_username">
          <property name="styleSheet">
-          <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+          <string notr="true">Background: rgba(195, 250, 234, 207);
+font: 14pt &quot;Segoe UI&quot;;
+color:rgba(115, 148, 139, 80)</string>
+         </property>
+         <property name="text">
+          <string>Enter Username</string>
          </property>
         </widget>
        </item>
@@ -114,29 +132,78 @@ color: rgb(0, 0, 0);
        <item>
         <widget class="QLabel" name="label_password">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#000000;&quot;&gt;Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#e9faf3;&quot;&gt;Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="lineEdit_password">
          <property name="styleSheet">
-          <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+          <string notr="true">Background: rgba(195, 250, 234, 207);
+font: 14pt &quot;Segoe UI&quot;;
+color:rgba(115, 148, 139, 80)</string>
+         </property>
+         <property name="text">
+          <string>Enter Password</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="Loginbutton">
-       <property name="styleSheet">
-        <string notr="true">background:rgb(255, 255, 127);
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QPushButton" name="Loginbutton">
+         <property name="styleSheet">
+          <string notr="true">Background:rgb(80, 204, 221);
 font: 700 14pt &quot;Segoe UI&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Login</string>
-       </property>
-      </widget>
+         </property>
+         <property name="text">
+          <string>Sign in</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_Guest_Sign_in">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Sign in as Guest</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>

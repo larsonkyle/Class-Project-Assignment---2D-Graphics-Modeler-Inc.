@@ -8,8 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->lineEdit_username->setPlaceholderText("Enter Username");
-    ui->lineEdit_password->setPlaceholderText("Enter Password");
+//commented out to test ui settings on button label
+//    ui->lineEdit_username->setPlaceholderText("Enter Username");
+//    ui->lineEdit_password->setPlaceholderText("Enter Password");
 }
 
 MainWindow::~MainWindow()
@@ -25,11 +26,17 @@ void MainWindow::on_Loginbutton_clicked()
 
     if(username == "admin" && password == "pass")
     {
-        QMessageBox::information(this, "Login", "Login Successful!");
+        QMessageBox::information(this, "Login", "Login Successful!\nSigned in as Admin.");
     }
     else
     {
-        QMessageBox::warning(this, "Login", "Username or password is incorrect.\nPlease try again.");
+        QMessageBox::warning(this, "Login", "Invalid credentials.\nPlease try again.");
     }
+}
+
+
+void MainWindow::on_pushButton_Guest_Sign_in_clicked()
+{
+    QMessageBox::information(this, "Login", "Signed in as Guest.");
 }
 

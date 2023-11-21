@@ -1,8 +1,6 @@
 #include "Ellipse.h"
 // Ellipse.cpp
 
-#include "Ellipse.h"
-
 bool Ellipse::isCircle() const
 {
     // Check if the ellipse is a circle by comparing its width and height

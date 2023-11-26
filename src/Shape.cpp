@@ -1,15 +1,15 @@
 #include "Shape.h"
-Shape::Shape(QPaintDevice* device, int setId, ShapeType sh){
-//     std::make_unique<QPainter>(device);
-    // assign paint device to qpainter??? wat
+Shape::Shape(QPaintDevice* device, int setId, ShapeType sh)
+: qpainter(device){
 
     id = setId;
     shape = sh;
+    this->default_style();
 }
 
-Shape::~Shape(){
-  //unique ptr :D
-}
+//Shape::~Shape(){
+//  //unique ptr :D
+//}
 
 /*****GETTERS*****/
 int Shape::getId() const{
@@ -29,7 +29,7 @@ const QBrush& Shape::get_brush() const{
 }
 //protected:
  QPainter& Shape::get_qpainter(){
-    return *p_qpainter;
+    return qpainter;
 }
 
 /*****SETTERS*******/
@@ -61,11 +61,12 @@ void Shape::set_id(int setId){
 void Shape::default_style(){
     pen = Qt::SolidLine;
     brush = Qt::NoBrush;
-
-    p_qpainter->setPen(pen);
-    p_qpainter->setBrush(brush);
 }
 
-void Shape::draw_rect(int width, int height){
- //??
+bool Shape::operator==(const Shape& right){
+    return this->id == right.id;
+}
+
+bool Shape::operator<(const Shape& right){
+    return this->id < right.id;
 }

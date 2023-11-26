@@ -9,15 +9,13 @@ void Line::set_point(const QPoint& new_point_begin, const QPoint& new_point_end)
 
 void Line::draw(const int translate_x, const int translate_y)
 {
-    QPainter& painter = get_qpainter();
-    
-    // Set pen style for the line
-    painter.setPen(get_pen());
-    
-    // Draw the line using the points
-    QPoint translatedBegin = point_begin + QPoint(translate_x, translate_y);
-    QPoint translatedEnd = point_end + QPoint(translate_x, translate_y);
-    
-    painter.drawLine(translatedBegin, translatedEnd);
+      QPainter& painter = get_qpainter();
+
+      painter.setPen(get_pen());
+      painter.setBrush(get_brush());
+
+      painter.translate(translate_x, translate_y);
+
+      painter.drawLine(point_begin, point_end);
 }
 

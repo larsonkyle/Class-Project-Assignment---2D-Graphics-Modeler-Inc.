@@ -6,7 +6,7 @@
 class Line : public Shape{
 	public:
         Line(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Polygon} {}
-        ~Line() { }
+        //~Line() { }
 
 		void set_point(const QPoint& point_begin, const QPoint& point_end);
 

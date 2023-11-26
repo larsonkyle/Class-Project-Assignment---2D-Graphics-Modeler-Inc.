@@ -18,7 +18,11 @@ class Shape{
 		enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Text};
 
         Shape(QPaintDevice* device = nullptr, int setId = -1, ShapeType sh = ShapeType::NoShape);
-        virtual ~Shape();
+        //virtual ~Shape();
+
+        //deliverable: must disable copy operations
+        Shape(const Shape&) = delete;
+        Shape& operator=(const Shape&) = delete;
 
 
 		ShapeType get_shape() const;
@@ -33,7 +37,16 @@ class Shape{
         void set_id(int setId);
 
 		void default_style();
-		void draw_rect(int width, int height);
+
+        //used to sort by ID
+        bool operator==(const Shape& right);
+        //Precondtions: an initialized Shape object with a valid ID
+        //Postconditions: will return a true/false whether the IDs are equal
+        bool operator<(const Shape& right);
+        //Precondtions: an initialized Shape object with a valid ID
+        //Postconditions: will return a true/false whether the left object's ID
+        //               is less than the right object's ID
+
 
 		virtual void draw(const int translate_x, const int translate_y) = 0;
 
@@ -41,7 +54,7 @@ class Shape{
 		QPainter& get_qpainter();
 
 	private:
-         std::unique_ptr<QPainter> p_qpainter; //UNIQUE PTR woo
+        QPainter qpainter;
 
 		int id;
 		ShapeType shape;

@@ -11,6 +11,10 @@ bool Rectangle::isSquare() const
     return width == height;
 }
 
+const vector<QPoint>& Rectangle::getPoints() const{
+    return points;
+}
+
 void Rectangle::set_rect(const QRect& rect)
 {
     // Set the rectangle's position and size

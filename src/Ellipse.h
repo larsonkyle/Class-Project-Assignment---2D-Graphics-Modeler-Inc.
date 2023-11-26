@@ -6,7 +6,7 @@
 class Ellipse : public Shape{
 	public:
 		Ellipse(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Ellipse} { }
-        ~Ellipse() { }
+        //~Ellipse() { }
 
 		bool isCircle() const;
 		void set_rect(const QRect& rect);

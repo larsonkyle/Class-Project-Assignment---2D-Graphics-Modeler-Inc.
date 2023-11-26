@@ -21,7 +21,6 @@ void Ellipse::draw(const int translate_x, const int translate_y)
     painter.setPen(get_pen());
     painter.setBrush(get_brush());
     
-    // Draw the ellipse using the rectangle
-    QRect translatedRect = rect.translated(translate_x, translate_y);
-    painter.drawEllipse(translatedRect);
+    painter.translate(translate_x, translate_y);
+    painter.drawEllipse(rect);
 }

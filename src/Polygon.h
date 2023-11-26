@@ -6,9 +6,10 @@
 class Polygon : public Shape{
 	public:
 		Polygon(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Polygon} {}
-        ~Polygon() { }
+        //~Polygon() { }
 
 		void set_point(const QPoint& point);
+        const vector<QPoint>& getPoints() const;
 
 		void draw(const int translate_x = 0, const int translate_y = 0) override;
 

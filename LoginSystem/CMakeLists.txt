@@ -17,7 +17,7 @@ set(TS_FILES LoginSystem_en_US.ts)
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
-        mainwindow.h
+
         mainwindow.ui
         ${TS_FILES}
 )
@@ -27,6 +27,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         screen.qrc
+        mainwindow.h
+        src/Ellipse.cpp src/Ellipse.h src/Line.cpp src/Line.h src/Polygon.cpp src/Polygon.h src/Polyline.cpp src/Polyline.h src/Rectangle.cpp src/Rectangle.h src/Shape.cpp src/Shape.h src/Text.cpp src/Text.h src/parser.h src/vector_doubles.h
+        shapes.txt
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET LoginSystem APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

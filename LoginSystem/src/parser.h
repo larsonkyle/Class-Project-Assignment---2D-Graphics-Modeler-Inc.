@@ -15,14 +15,14 @@
 const int FILE_OPEN_ERROR = 0;
 
 Shape::ShapeType shapeStrToInt(const std::string s);
-void inputLine(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector);
-void inputPolyline(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector);
-void inputPolygon(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector);
-void inputRectangle(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector);
-void inputSquare(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector);
-void inputEllipse(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector);
-void inputCircle(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector);
-void inputText(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector);
+void inputLine(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
+void inputPolyline(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
+void inputPolygon(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
+void inputRectangle(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
+void inputSquare(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
+void inputEllipse(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
+void inputCircle(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
+void inputText(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
 
 void getShapes(vector<Shape*> shapeVector) {
     std::string dummy;
@@ -54,28 +54,28 @@ void getShapes(vector<Shape*> shapeVector) {
         if (fin) {
             switch(shapeStrToInt(shapeType)) {
                 case Shape::ShapeType::Line:
-                    inputLine(fin, shapeID, shapeType, shapeVector);
+                    inputLine(fin, shapeID, shapeVector);
                     break;
                 case Shape::ShapeType::Polyline:
-                    inputPolyline(fin, shapeID, shapeType, shapeVector);
+                    inputPolyline(fin, shapeID, shapeVector);
                     break;
                 case Shape::ShapeType::Polygon:
-                    inputPolygon(fin, shapeID, shapeType, shapeVector);
+                    inputPolygon(fin, shapeID, shapeVector);
                     break;
                 case Shape::ShapeType::Rectangle:
-                    inputRectangle(fin, shapeID, shapeType, shapeVector);
+                    inputRectangle(fin, shapeID, shapeVector);
                     break;
                 case Shape::ShapeType::Square:
-                    inputSquare(fin, shapeID, shapeType, shapeVector);
+                    inputSquare(fin, shapeID, shapeVector);
                     break;
                 case Shape::ShapeType::Ellipse:
-                    inputEllipse(fin, shapeID, shapeType, shapeVector);
+                    inputEllipse(fin, shapeID, shapeVector);
                     break;
                 case Shape::ShapeType::Circle:
-                    inputCircle(fin, shapeID, shapeType, shapeVector);
+                    inputCircle(fin, shapeID, shapeVector);
                     break;
                 case Shape::ShapeType::Text:
-                    inputText(fin, shapeID, shapeType, shapeVector);
+                    inputText(fin, shapeID, shapeVector);
                     break;
                 case Shape::ShapeType::NoShape:
                     break;
@@ -115,7 +115,7 @@ Line::ShapeType shapeStrToInt(const std::string s) {
     return Shape::ShapeType::NoShape;
 }
 
-void inputLine(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector) {
+void inputLine(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -176,7 +176,7 @@ void inputLine(std::ifstream& fin, const std::string shapeID, const std::string 
     shapeVector.push_back(linePtr);
 }
 
-void inputPolyline(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector) {
+void inputPolyline(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -260,7 +260,7 @@ void inputPolyline(std::ifstream& fin, const std::string shapeID, const std::str
     shapeVector.push_back(polylinePtr);
 }
 
-void inputPolygon(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector) {
+void inputPolygon(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -355,7 +355,7 @@ void inputPolygon(std::ifstream& fin, const std::string shapeID, const std::stri
     shapeVector.push_back(polygonPtr);
 }
 
-void inputRectangle(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector) {
+void inputRectangle(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -414,7 +414,7 @@ void inputRectangle(std::ifstream& fin, const std::string shapeID, const std::st
     Qt::GlobalColor qtBrushColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(brushColor.c_str()));
     Qt::BrushStyle qtBrushStyle = static_cast<Qt::BrushStyle>((QMetaEnum::fromType<Qt::BrushStyle>()).keyToValue(brushStyle.c_str()));
 
-    Ellipse* rectanglePtr = new Ellipse;
+    Rectangle* rectanglePtr = new Rectangle;
     QRect r;
     r.setTopLeft(p1);
     r.setHeight(stoi(dim3));
@@ -429,7 +429,7 @@ void inputRectangle(std::ifstream& fin, const std::string shapeID, const std::st
     shapeVector.push_back(rectanglePtr);
 }
 
-void inputSquare(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector) {
+void inputSquare(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -484,7 +484,7 @@ void inputSquare(std::ifstream& fin, const std::string shapeID, const std::strin
     Qt::GlobalColor qtBrushColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(brushColor.c_str()));
     Qt::BrushStyle qtBrushStyle = static_cast<Qt::BrushStyle>((QMetaEnum::fromType<Qt::BrushStyle>()).keyToValue(brushStyle.c_str()));
 
-    Ellipse* squarePtr = new Ellipse;
+    Rectangle* squarePtr = new Rectangle;
     QRect s;
     s.setTopLeft(p1);
     s.setHeight(stoi(dim3));
@@ -499,7 +499,7 @@ void inputSquare(std::ifstream& fin, const std::string shapeID, const std::strin
     shapeVector.push_back(squarePtr);
 }
 
-void inputEllipse(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector) {
+void inputEllipse(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -564,7 +564,7 @@ void inputEllipse(std::ifstream& fin, const std::string shapeID, const std::stri
     e.setHeight(stoi(dim3));
     e.setWidth(stoi(dim4));
 
-    ellipsePtr->set_rect(e);
+    ellipsePtr->set_ellipse(e);
     ellipsePtr->set_shape(Shape::ShapeType::Ellipse);
     ellipsePtr->set_id(stoi(shapeID));
     ellipsePtr->set_pen(qtPenColor, stoi(penWidth), qtPenStyle, qtPenCapStyle, qtPenJoinStyle);
@@ -573,7 +573,7 @@ void inputEllipse(std::ifstream& fin, const std::string shapeID, const std::stri
     shapeVector.push_back(ellipsePtr);
 }
 
-void inputCircle(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector) {
+void inputCircle(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -634,7 +634,7 @@ void inputCircle(std::ifstream& fin, const std::string shapeID, const std::strin
     c.setHeight(stoi(dim3));
     c.setWidth(stoi(dim3));
 
-    circlePtr->set_rect(c);
+    circlePtr->set_ellipse(c);
     circlePtr->set_shape(Shape::ShapeType::Circle);
     circlePtr->set_id(stoi(shapeID));
     circlePtr->set_pen(qtPenColor, stoi(penWidth), qtPenStyle, qtPenCapStyle, qtPenJoinStyle);
@@ -643,7 +643,7 @@ void inputCircle(std::ifstream& fin, const std::string shapeID, const std::strin
     shapeVector.push_back(circlePtr);
 }
 
-void inputText(std::ifstream& fin, const std::string shapeID, const std::string shapeType, vector<Shape*> shapeVector) {
+void inputText(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -656,6 +656,8 @@ void inputText(std::ifstream& fin, const std::string shapeID, const std::string 
     std::string textFontStyle;
     std::string textFontWeight;
     std::string dummy;
+
+    QPoint p1;
 
     fin >> dummy;
     fin >> dim1;
@@ -691,4 +693,25 @@ void inputText(std::ifstream& fin, const std::string shapeID, const std::string 
 
     fin >> dummy;
     fin >> textFontWeight;
+
+    p1.setX(stoi(dim1));
+    p1.setY(stoi(dim2));
+
+    Qt::AlignmentFlag qtTextAlignment = static_cast<Qt::AlignmentFlag>((QMetaEnum::fromType<Qt::AlignmentFlag>()).keyToValue(textAlignment.c_str()));
+    Qt::GlobalColor qtTextColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(textColor.c_str()));
+    QFont::Style qtTextFontStyle = static_cast<QFont::Style>((QMetaEnum::fromType<QFont::Style>()).keyToValue(textFontStyle.c_str()));
+    QFont::Weight qtTextFontWeight = static_cast<QFont::Weight>((QMetaEnum::fromType<QFont::Weight>()).keyToValue(textFontWeight.c_str()));
+
+    Text* textPtr = new Text;
+    QRect t;
+    t.setTopLeft(p1);
+    t.setHeight(stoi(dim3));
+    t.setWidth(stoi(dim4));
+
+    textPtr->set_text(t, QString(textString.c_str()), QColor(qtTextColor), qtTextAlignment,
+                      stoi(textPointSize), QString(textFontFamily.c_str()), qtTextFontStyle, qtTextFontWeight);
+    textPtr->set_shape(Shape::ShapeType::Text);
+    textPtr->set_id(stoi(shapeID));
+
+    shapeVector.push_back(textPtr);
 }

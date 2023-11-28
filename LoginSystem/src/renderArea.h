@@ -8,23 +8,19 @@
 #include <QWidget>
 
 class RenderArea : public QWidget
-{
-    Q_OBJECT
-    
+{   
 public:
     RenderArea(QWidget *parent = nullptr);
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
-    const vector<Shape*>& getShapes();
+    const vector<Shape*>& getShape();
+    void addShape(Shape* shape)
 
-public slots:
     void setShape(Shape shape);
     void setPen(const QPen &pen);
     void setBrush(const QBrush &brush);
     void setAntialiased(bool antialiased);
     void setTransformed(bool transformed);
-    
-protected:
     void paintEvent(QPaintEvent *event) override;
     
 private:

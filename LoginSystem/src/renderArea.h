@@ -1,40 +1,32 @@
 #ifndef RENDERAREA_H
 #define RENDERAREA_H
 
+#include "vector_doubles.h"
+#include "Shape.h"
 #include <QBrush>
+#include <QPaintEvent>
 #include <QPen>
-#include <QPixmap>
 #include <QWidget>
+#include <QFile>
+#include <QMessageBox>
 
 class RenderArea : public QWidget
 {
     Q_OBJECT
-    
 public:
-    enum Shape { Line, Polyline, Polygon, Rect, Ellipse, Text };
-    
-    explicit RenderArea(QWidget *parent = nullptr);
-    
+    RenderArea(QWidget *parent = nullptr);
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
-    
-public slots:
-    void setShape(Shape shape);
-    void setPen(const QPen &pen);
-    void setBrush(const QBrush &brush);
-    void setAntialiased(bool antialiased);
-    void setTransformed(bool transformed);
-    
-protected:
+    const vector<Shape*>& getShape() const;
+    void addShape(Shape* shapeAdd);
+    int getSize() const;
+    int getNumOfShapes() const;
     void paintEvent(QPaintEvent *event) override;
-    
+
 private:
-    Shape shape;
-    QPen pen;
-    QBrush brush;
-    bool antialiased;
-    bool transformed;
-    QPixmap pixmap;
+    QImage renderArea;
+    int numberOfShapes;
+    vector<Shape*> shapeChoices;
 };
 
 #endif // RENDERAREA_H

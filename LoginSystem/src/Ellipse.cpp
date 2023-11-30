@@ -7,7 +7,7 @@ bool Ellipse::isCircle() const
     return rect.width() == rect.height();
 }
 
-void Ellipse::set_ellipse(const QRect& new_rect)
+void Ellipse::set_rect(const QRect& new_rect)
 {
     // Set the rectangle for the ellipse
     rect = new_rect;

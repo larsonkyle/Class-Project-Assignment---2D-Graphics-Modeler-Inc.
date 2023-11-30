@@ -7,9 +7,7 @@ Shape::Shape(QPaintDevice* device, int setId, ShapeType sh)
     this->default_style();
 }
 
-//Shape::~Shape(){
-//  //unique ptr :D
-//}
+
 
 /*****GETTERS*****/
 int Shape::getId() const{
@@ -33,11 +31,11 @@ const QBrush& Shape::get_brush() const{
 }
 
 /*****SETTERS*******/
-void Shape::set_shape(ShapeType sh){
+void Shape::set_shape(const ShapeType sh){
     shape = sh;
 }
 
-void Shape::set_pen(Qt::GlobalColor pc, int width, Qt::PenStyle ps, Qt::PenCapStyle pcs, Qt::PenJoinStyle pjs){
+void Shape::set_pen(const Qt::GlobalColor pc, const int width, const Qt::PenStyle ps, const Qt::PenCapStyle pcs, const Qt::PenJoinStyle pjs){
     pen.setColor(pc);
     pen.setWidth(width);
     pen.setStyle(ps);
@@ -45,16 +43,16 @@ void Shape::set_pen(Qt::GlobalColor pc, int width, Qt::PenStyle ps, Qt::PenCapSt
     pen.setJoinStyle(pjs);
 }
 
-void Shape::set_pen(Qt::GlobalColor pc){
+void Shape::set_pen(const Qt::GlobalColor pc){
     pen.setColor(pc);
 }
 
-void Shape::set_brush(Qt::GlobalColor bc, Qt::BrushStyle bs){
+void Shape::set_brush(const Qt::GlobalColor bc, const Qt::BrushStyle bs){
     brush.setColor(bc);
     brush.setStyle(bs);
 }
 
-void Shape::set_id(int setId){
+void Shape::set_id(const int setId){
     id = setId;
 }
 /******set default style*****/

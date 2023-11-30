@@ -4,7 +4,7 @@
 #include "Shape.h"
 
 class Rectangle : public Shape{
-    public:
+	public:
         Rectangle(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Rectangle} { }
         //~Rectangle() {}
 
@@ -14,8 +14,8 @@ class Rectangle : public Shape{
 
 		void draw(const int translate_x = 0, const int translate_y = 0) override;
 
-    private:
-        QRect rect;
+	private:
+		vector<QPoint> points; //QRect rect;
 };
 
 #endif 

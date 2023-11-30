@@ -4,8 +4,8 @@
 #include "Shape.h"
 
 class Line : public Shape{
-    public:
-        Line(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Line} {}
+	public:
+        Line(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Polygon} {}
         //~Line() { }
 
 		void set_point(const QPoint& point_begin, const QPoint& point_end);

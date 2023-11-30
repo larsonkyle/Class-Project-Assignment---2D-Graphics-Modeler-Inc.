@@ -1,43 +1,57 @@
-// RenderArea.cpp
-
+// renderArea.cpp
 #include "renderArea.h"
 #include <QPainter>
 
 RenderArea::RenderArea(QWidget *parent)
-    : QWidget(parent)
+    : QWidget(parent), numberOfShapes(0)
 {
-    setBackgroundRole(QPalette::Base);
-    setFixedSize(sizeHint());
-    setAutoFillBackground(true);
-}
-
-void RenderArea::addShape(Shape* shape)
-{
-    shapeChoices.push_back(shape);
-    update();  // Schedule a repaint
+    setAttribute(Qt::WA_StaticContents);
 }
 
 QSize RenderArea::minimumSizeHint() const
 {
-    return QSize(1200, 600);
+    return QSize(100, 100);
 }
 
 QSize RenderArea::sizeHint() const
 {
-    return QSize(1200, 600);
+    return QSize(400, 200);
+}
+
+const vector<Shape*>& RenderArea::getShape() const
+{
+    return shapeChoices;
+}
+
+void RenderArea::addShape(Shape* shapeAdd)
+{
+    shapeChoices.push_back(shapeAdd);
+    ++numberOfShapes;
+    update(); // Trigger repaint
+}
+
+int RenderArea::getSize() const
+{
+    return numberOfShapes;
 }
 
 int RenderArea::getNumOfShapes() const
 {
-    return shapeChoices.size();
+    return numberOfShapes;
 }
 
-void RenderArea::paintEvent(QPaintEvent *)
+void RenderArea::paintEvent(QPaintEvent *event)
 {
-    QPaintDevice *device = this;;
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing, true);
 
-    for (int i = 0; i < shapeChoices.size(); i++) {
-        shapeChoices[i]->draw(device);
+    for (const auto& shape : shapeChoices)
+    {
+        if (shape)
+        {
+            shape->draw(0, 0);
+        }
     }
-}
 
+    painter.end();
+}

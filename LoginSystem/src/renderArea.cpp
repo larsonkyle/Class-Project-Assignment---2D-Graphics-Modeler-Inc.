@@ -6,6 +6,10 @@ RenderArea::RenderArea(QWidget *parent)
     : QWidget(parent), numberOfShapes(0)
 {
     setAttribute(Qt::WA_StaticContents);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setBackgroundRole(QPalette::Base);
+    setFixedSize(400, 200);
+    setAutoFillBackground(true);
 }
 
 QSize RenderArea::minimumSizeHint() const

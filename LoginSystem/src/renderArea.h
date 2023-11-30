@@ -15,8 +15,10 @@ public:
     QSize sizeHint() const override;
     const vector<Shape*>& getShape();
     void addShape(Shape* shape)
-
-    void setShape(Shape shape);
+    int getSize();
+    int getNumOfShapes();
+    void paintEvent(QPaintEvent *event) override;    void setShape(Shape shape);
+    
     void setPen(const QPen &pen);
     void setBrush(const QBrush &brush);
     void setAntialiased(bool antialiased);
@@ -25,12 +27,8 @@ public:
     
 private:
     const QImage renderArea;
-    vector<Shape*> shapes;
-    Shape shape;
-    QPen pen;
-    QBrush brush;
-    bool antialiased;
-    bool transformed;
+    int numberOfShapes;
+    vector<Shape*> shapeChoice;
 };
 
 #endif // RENDERAREA_H

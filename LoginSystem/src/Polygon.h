@@ -9,7 +9,7 @@ class Polygon : public Shape{
         //~Polygon() { }
 
 		void set_point(const QPoint& point);
-        const vector<QPoint>& getPoints() const;
+        vector<QPoint> getPoints() override {return points;}
 
 		void draw(const int translate_x = 0, const int translate_y = 0) override;
 
@@ -17,7 +17,5 @@ class Polygon : public Shape{
 		vector<QPoint> points;
 
 };
-
-
 
 #endif

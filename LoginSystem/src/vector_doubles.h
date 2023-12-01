@@ -121,6 +121,18 @@ namespace myStd
             return &elem[size_v];
         }
 
+        /*
+        iterator data()
+        {
+            return elem;
+        }
+
+        const_iterator data() const
+        {
+            return elem;
+        }
+        */
+
         iterator insert(iterator p, const double &val)  
         {
         if (size_v == space)

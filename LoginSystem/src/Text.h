@@ -6,30 +6,31 @@
 class Text : public Shape{
 	public:
 		Text(QPaintDevice* device = nullptr, int id = -1) : Shape(device, id, ShapeType::Text) { }
-        //~Text() { }
+        //~Text() override { }
 
-        void set_text(const QRect& tO, const QString t, const QColor c, const Qt::AlignmentFlag a,
+        void set_text(const QRect& tO, const QString t, const QColor c, const AlignmentFlag a,
                       const int pS, const QString f, const QFont::Style s, const QFont::Weight w);
 
-        const QFont& get_font() const;
-        //Preconditions: the text object has been set with set_text(...)
-        //Postconditions: will return a reference to the font attribute to read what the font is.
+        QRect getRect() override {return rect;}
+        QFont get_font() override {return font;}
+
+        QString getTextString() override {return text;}
+        QColor getTextColor() override {return color;}
+        AlignmentFlag getAlign() override {return align;}
 
 		void draw(const int translate_x = 0, const int translate_y = 0) override;
 
 	private:
 		QRect rect;
 		QString text {"Class Project - 2D Graphics Modeler"};
-		QColor color {Qt::blue};
-		Qt::AlignmentFlag align {Qt::AlignCenter};
+        QColor color {blue};
+        AlignmentFlag align {AlignCenter};
+
 		int pointSize {10};
 		QString family {"Comic Sans MS"};
 		QFont::Style style {QFont::StyleNormal};
         QFont::Weight weight {QFont::Normal};
-
         QFont font; //in set_text, feed everything from above into here. Then give to qpainter.
 };
-
-
 
 #endif

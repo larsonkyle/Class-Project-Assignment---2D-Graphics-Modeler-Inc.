@@ -19,10 +19,6 @@ void Text::set_text(const QRect& tO, const QString t, const QColor c, const Qt::
     font.setWeight(weight);
 }
 
-const QFont& Text::get_font() const{
-    return font;
-}
-
 void Text::draw(const int translate_x, const int translate_y)
 {
     QPainter& painter = get_qpainter();

@@ -30,6 +30,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         mainwindow.h
         src/Ellipse.cpp src/Ellipse.h src/Line.cpp src/Line.h src/Polygon.cpp src/Polygon.h src/Polyline.cpp src/Polyline.h src/Rectangle.cpp src/Rectangle.h src/Shape.cpp src/Shape.h src/Text.cpp src/Text.h src/parser.h src/vector_doubles.h
         shapes.txt
+        src/serializer.h
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET LoginSystem APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

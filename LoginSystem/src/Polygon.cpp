@@ -1,15 +1,10 @@
 #include "Polygon.h"
 
-
 void Polygon::set_point(const QPoint& point){
     points.push_back(point);
 }
 
-const vector<QPoint>& Polygon::getPoints() const{
-        return points;
-}
-
-void Polygon::draw(const int translate_x , const int translate_y ){
+void Polygon::draw(const int translate_x, const int translate_y){
     QPainter& painter = get_qpainter();
 
     painter.setPen(get_pen());
@@ -17,6 +12,5 @@ void Polygon::draw(const int translate_x , const int translate_y ){
 
     painter.translate(translate_x, translate_y);
 
-    painter.drawPolygon(points.begin(), points.size());
-
+    painter.drawPolygon(points.data(), points.size());
 }

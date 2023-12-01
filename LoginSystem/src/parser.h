@@ -1,3 +1,6 @@
+#ifndef PARSER_H
+#define PARSER_H
+
 #include <iostream>
 #include <fstream>
 #include <QMetaEnum>
@@ -15,16 +18,16 @@
 const int FILE_OPEN_ERROR = 0;
 
 Shape::ShapeType shapeStrToInt(const std::string s);
-void inputLine(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
-void inputPolyline(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
-void inputPolygon(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
-void inputRectangle(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
-void inputSquare(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
-void inputEllipse(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
-void inputCircle(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
-void inputText(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector);
+void inputLine(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector);
+void inputPolyline(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector);
+void inputPolygon(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector);
+void inputRectangle(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector);
+void inputSquare(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector);
+void inputEllipse(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector);
+void inputCircle(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector);
+void inputText(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector);
 
-void getShapes(vector<Shape*> shapeVector) {
+void readShapes(vector<Shape*> shapeVector) {
     std::string dummy;
     std::string shapeID;
     std::string shapeType;
@@ -91,7 +94,6 @@ void getShapes(vector<Shape*> shapeVector) {
         fin >> shapeType;
     }
 
-    std::cout << std::endl;
     fin.close();
 }
 
@@ -115,7 +117,7 @@ Line::ShapeType shapeStrToInt(const std::string s) {
     return Shape::ShapeType::NoShape;
 }
 
-void inputLine(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
+void inputLine(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -176,7 +178,7 @@ void inputLine(std::ifstream& fin, const std::string shapeID, vector<Shape*> sha
     shapeVector.push_back(linePtr);
 }
 
-void inputPolyline(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
+void inputPolyline(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -260,7 +262,7 @@ void inputPolyline(std::ifstream& fin, const std::string shapeID, vector<Shape*>
     shapeVector.push_back(polylinePtr);
 }
 
-void inputPolygon(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
+void inputPolygon(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -355,7 +357,7 @@ void inputPolygon(std::ifstream& fin, const std::string shapeID, vector<Shape*> 
     shapeVector.push_back(polygonPtr);
 }
 
-void inputRectangle(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
+void inputRectangle(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -429,7 +431,7 @@ void inputRectangle(std::ifstream& fin, const std::string shapeID, vector<Shape*
     shapeVector.push_back(rectanglePtr);
 }
 
-void inputSquare(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
+void inputSquare(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -499,7 +501,7 @@ void inputSquare(std::ifstream& fin, const std::string shapeID, vector<Shape*> s
     shapeVector.push_back(squarePtr);
 }
 
-void inputEllipse(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
+void inputEllipse(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -573,7 +575,7 @@ void inputEllipse(std::ifstream& fin, const std::string shapeID, vector<Shape*> 
     shapeVector.push_back(ellipsePtr);
 }
 
-void inputCircle(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
+void inputCircle(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -643,7 +645,7 @@ void inputCircle(std::ifstream& fin, const std::string shapeID, vector<Shape*> s
     shapeVector.push_back(circlePtr);
 }
 
-void inputText(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
+void inputText(std::ifstream& fin, const std::string shapeID, vector<Shape*>& shapeVector) {
     std::string dim1;
     std::string dim2;
     std::string dim3;
@@ -715,3 +717,5 @@ void inputText(std::ifstream& fin, const std::string shapeID, vector<Shape*> sha
 
     shapeVector.push_back(textPtr);
 }
+
+#endif // PARSER_H

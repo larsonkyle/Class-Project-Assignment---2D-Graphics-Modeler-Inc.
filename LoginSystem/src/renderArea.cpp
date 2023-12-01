@@ -31,7 +31,7 @@ void RenderArea::addShape(Shape* shapeAdd)
 {
     shapeChoices.push_back(shapeAdd);
     ++numberOfShapes;
-    update(); // Trigger repaint
+    update(); 
 }
 
 int RenderArea::getSize() const
@@ -44,18 +44,9 @@ int RenderArea::getNumOfShapes() const
     return numberOfShapes;
 }
 
-void RenderArea::paintEvent(QPaintEvent *event)
+void RenderArea::paintEvent(QPaintEvent *)
 {
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing, true);
-
-    for (const auto& shape : shapeChoices)
-    {
-        if (shape)
-        {
-            shape->draw(0, 0);
-        }
-    }
-
-    painter.end();
+    QPaintDevice* device = this;
+    for(int i = 0; i < shapeChoices.size(); i++)
+        shapeChoices[i]->draw(device);
 }

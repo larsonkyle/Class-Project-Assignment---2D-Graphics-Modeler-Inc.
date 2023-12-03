@@ -12,5 +12,5 @@ void Polyline::draw(const int translate_x, const int translate_y){
 
     painter.translate(translate_x, translate_y);
 
-    painter.drawPolyline(points.data(), points.size());
+    painter.drawPolyline(points.begin(), points.size());
 }

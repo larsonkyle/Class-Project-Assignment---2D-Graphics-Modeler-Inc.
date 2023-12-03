@@ -12,5 +12,5 @@ void Polygon::draw(const int translate_x, const int translate_y){
 
     painter.translate(translate_x, translate_y);
 
-    painter.drawPolygon(points.data(), points.size());
+    painter.drawPolygon(points.begin(), points.size());
 }

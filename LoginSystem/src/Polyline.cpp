@@ -4,8 +4,9 @@ void Polyline::set_point(const QPoint& point){
     points.push_back(point);
 }
 
-void Polyline::draw(const int translate_x, const int translate_y){
+void Polyline::draw(QPaintDevice* device){
     QPainter& painter = get_qpainter();
+    painter.begin(device);
 
     painter.setPen(get_pen());
     painter.setBrush(get_brush());

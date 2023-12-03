@@ -5,7 +5,7 @@
 
 class Text : public Shape{
 	public:
-		Text(QPaintDevice* device = nullptr, int id = -1) : Shape(device, id, ShapeType::Text) { }
+        Text(int id = -1) : Shape(id, ShapeType::Text) { }
         //~Text() override { }
 
         void set_text(const QRect& tO, const QString t, const QColor c, const AlignmentFlag a,
@@ -18,7 +18,7 @@ class Text : public Shape{
         QColor getTextColor() override {return color;}
         AlignmentFlag getAlign() override {return align;}
 
-		void draw(const int translate_x = 0, const int translate_y = 0) override;
+        void draw(QPaintDevice* device) override;
 
 	private:
 		QRect rect;

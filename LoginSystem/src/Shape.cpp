@@ -1,7 +1,6 @@
 #include "Shape.h"
 
-Shape::Shape(QPaintDevice* device, int setId, ShapeType sh)
-    : qpainter(device){
+Shape::Shape(int setId, ShapeType sh){
 
     id = setId;
     shape = sh;
@@ -9,7 +8,7 @@ Shape::Shape(QPaintDevice* device, int setId, ShapeType sh)
 }
 
 /*****GETTERS*****/
-int Shape::getId() const{
+int Shape::get_id() const{
    return id;
 }
 

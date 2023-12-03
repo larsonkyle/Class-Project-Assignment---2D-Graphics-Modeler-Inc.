@@ -19,14 +19,16 @@ void Text::set_text(const QRect& tO, const QString t, const QColor c, const Qt::
     font.setWeight(weight);
 }
 
-void Text::draw(const int translate_x, const int translate_y)
+void Text::draw(QPaintDevice* device)
 {
     QPainter& painter = get_qpainter();
+    painter.begin(device);
     
     painter.setFont(font);
     painter.setPen(color);
     
-    painter.translate(translate_x, translate_y);
     painter.drawText(rect, align, text);
+
+    painter.end();
 }
 

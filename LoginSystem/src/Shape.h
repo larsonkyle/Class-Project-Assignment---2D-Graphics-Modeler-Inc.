@@ -17,14 +17,14 @@ class Shape{
 	public:
         enum ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Square, Ellipse, Circle, Text};
 
-        Shape(QPaintDevice* device = nullptr, int id = -1, ShapeType shape = ShapeType::NoShape);
+        Shape(int id = -1, ShapeType shape = ShapeType::NoShape);
         virtual ~Shape() {}
 
 		//Deliverable: Must suppress copy operations
         Shape(const Shape&)            = delete;//copy constructor
         Shape& operator=(const Shape&) = delete;//copy assignment
 
-        int getId() const;
+        int get_id() const;
 		ShapeType get_shape() const;
 		const QPen& get_pen() const;
 		const QBrush& get_brush() const;
@@ -37,7 +37,7 @@ class Shape{
 
 		void default_style();
 
-		virtual void draw(const int translate_x, const int translate_y) = 0;
+        virtual void draw(QPaintDevice* device) = 0;
 
         virtual QPoint getPointBegin() {return QPoint(0,0);}
         virtual QPoint getPointEnd() {return QPoint(0,0);}

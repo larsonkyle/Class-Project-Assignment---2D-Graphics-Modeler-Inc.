@@ -11,7 +11,5 @@ void Polyline::draw(QPaintDevice* device){
     painter.setPen(get_pen());
     painter.setBrush(get_brush());
 
-    painter.translate(translate_x, translate_y);
-
     painter.drawPolyline(points.begin(), points.size());
 }

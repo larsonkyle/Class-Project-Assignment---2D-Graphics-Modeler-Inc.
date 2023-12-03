@@ -5,7 +5,7 @@
 
 class Line : public Shape{
 	public:
-        Line(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Line} {}
+        Line(int id = -1) : Shape{id, ShapeType::Line} {}
         //~Line() { }
 
 		void set_point(const QPoint& point_begin, const QPoint& point_end);
@@ -13,7 +13,7 @@ class Line : public Shape{
         QPoint getPointBegin() override {return point_begin;}
         QPoint getPointEnd() override {return point_end;}
 
-		void draw(const int translate_x = 0, const int translate_y = 0) override;
+        void draw(QPaintDevice* device) override;
 
 	private:
 		QPoint point_begin;

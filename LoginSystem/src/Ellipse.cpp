@@ -7,14 +7,16 @@ bool Ellipse::isCircle() const
     return (ellipse.width() == ellipse.height());
 }
 
-void Ellipse::draw(const int translate_x, const int translate_y)
+void Ellipse::draw(QPaintDevice* device)
 {
     QPainter& painter = get_qpainter();
+    painter.begin(device);
     
     // Set pen and brush styles for the ellipse
     painter.setPen(get_pen());
     painter.setBrush(get_brush());
     
-    painter.translate(translate_x, translate_y);
     painter.drawEllipse(ellipse);
+
+    painter.end();
 }

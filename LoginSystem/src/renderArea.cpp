@@ -3,13 +3,12 @@
 #include <QPainter>
 
 RenderArea::RenderArea(QWidget *parent)
-    : QWidget(parent), numberOfShapes(0)
+    : QWidget(parent), shapeChoices(9)
 {
-    setAttribute(Qt::WA_StaticContents);
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setBackgroundRole(QPalette::Base);
-    setFixedSize(400, 200);
     setAutoFillBackground(true);
+    setFixedSize(1000, 500);
+    numberOfShapes = 0;
 }
 
 QSize RenderArea::minimumSizeHint() const
@@ -19,7 +18,7 @@ QSize RenderArea::minimumSizeHint() const
 
 QSize RenderArea::sizeHint() const
 {
-    return QSize(400, 200);
+    return QSize(1000, 500);
 }
 
 const vector<Shape*>& RenderArea::getShape() const

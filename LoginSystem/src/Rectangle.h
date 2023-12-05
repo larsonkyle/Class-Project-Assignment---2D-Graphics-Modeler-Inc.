@@ -13,6 +13,9 @@ class Rectangle : public Shape{
         QRect getRect() override {return rect;}
 
         void draw(QPaintDevice* device) override;
+        void move(int translate_x, int translate_y) override;
+        double getPerimeter() override {return (2 * rect.width() + 2 * rect.height());}
+        double getArea() override {return rect.width() * rect.height();}
 
     private:
         QRect rect;

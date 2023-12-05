@@ -14,6 +14,9 @@ class Line : public Shape{
         QPoint getPointEnd() override {return point_end;}
 
         void draw(QPaintDevice* device) override;
+        void move(int translate_x, int translate_y) override;
+        double getPerimeter() override {return 0;}
+        double getArea() override {return 0;}
 
 	private:
 		QPoint point_begin;

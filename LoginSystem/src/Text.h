@@ -11,7 +11,7 @@ class Text : public Shape{
         void set_text(const QRect& tO, const QString t, const QColor c, const AlignmentFlag a,
                       const int pS, const QString f, const QFont::Style s, const QFont::Weight w);
 
-        QRect getRect() override {return rect;}
+        QRect getRect() override {return textBox;}
         QFont get_font() override {return font;}
 
         QString getTextString() override {return text;}
@@ -19,10 +19,13 @@ class Text : public Shape{
         AlignmentFlag getAlign() override {return align;}
 
         void draw(QPaintDevice* device) override;
+        void move(int translate_x, int translate_y) override;
+        double getPerimeter() override {return (2 * textBox.width() + 2 * textBox.height());}
+        double getArea() override {return textBox.width() * textBox.height();}
 
-	private:
-		QRect rect;
-		QString text {"Class Project - 2D Graphics Modeler"};
+    private:
+        QRect textBox;
+        QString text {"Class Project - 2D Graphics Modeler"};
         QColor color {blue};
         AlignmentFlag align {AlignCenter};
 

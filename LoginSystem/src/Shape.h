@@ -38,6 +38,9 @@ class Shape{
 		void default_style();
 
         virtual void draw(QPaintDevice* device) = 0;
+        virtual void move(int translate_x, int translate_y) = 0;
+        virtual double getPerimeter() = 0;
+        virtual double getArea() = 0;
 
         virtual QPoint getPointBegin() {return QPoint(0,0);}
         virtual QPoint getPointEnd() {return QPoint(0,0);}

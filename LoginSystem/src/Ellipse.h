@@ -13,6 +13,9 @@ class Ellipse : public Shape{
         QRect getRect() override {return ellipse;}
 
         void draw(QPaintDevice* device) override;
+        void move(int translate_x, int translate_y) override;
+        double getPerimeter() override;
+        double getArea() override;
 
     private:
         QRect ellipse;

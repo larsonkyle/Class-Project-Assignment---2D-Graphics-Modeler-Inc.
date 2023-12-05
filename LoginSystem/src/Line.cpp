@@ -20,3 +20,10 @@ void Line::draw(QPaintDevice* device)
       painter.end();
 }
 
+void Line::move(int t_x, int t_y) {
+      // first point = new point and all other points or adjusted accoridngly to keep the shape structure the same
+      QPoint new_point = QPoint(t_x, t_y);
+      point_end += new_point - point_begin;
+      point_begin = new_point;
+}
+

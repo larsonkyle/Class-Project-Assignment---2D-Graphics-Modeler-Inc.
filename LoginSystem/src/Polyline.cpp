@@ -13,3 +13,13 @@ void Polyline::draw(QPaintDevice* device){
 
     painter.drawPolyline(points.begin(), points.size());
 }
+
+void Polyline::move(int t_x, int t_y) {
+    QPoint new_point = QPoint(t_x, t_y);
+
+    for (int i = 1; i < points.size(); i++) {
+        points[i] += new_point - points[0];
+    }
+
+    points[0] = new_point;
+}

@@ -20,3 +20,8 @@ void Rectangle::draw(QPaintDevice* device)
 
     painter.end();
 }
+
+void Rectangle::move(int t_x, int t_y) {
+    QPoint new_point = QPoint(t_x, t_y);
+    rect.moveTopLeft(new_point);
+}

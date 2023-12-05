@@ -78,7 +78,7 @@ void outputLine(std::ofstream& fout, vector<Shape*>::iterator it) {
     fout << "PenWidth: " << penWidth << endl;
     fout << "PenStyle: " << penStyle << endl;
     fout << "PenCapStyle: " << penCapStyle << endl;
-    fout << "PenJoinStyle: " << penJoinStyle << endl;
+    fout << "PenJoinStyle: " << penJoinStyle << endl << endl;
 }
 
 void outputPolyline(std::ofstream& fout, vector<Shape*>::iterator it) {
@@ -105,7 +105,7 @@ void outputPolyline(std::ofstream& fout, vector<Shape*>::iterator it) {
     fout << "PenWidth: " << penWidth << endl;
     fout << "PenStyle: " << penStyle << endl;
     fout << "PenCapStyle: " << penCapStyle << endl;
-    fout << "PenJoinStyle: " << penJoinStyle << endl;
+    fout << "PenJoinStyle: " << penJoinStyle << endl << endl;
 }
 
 void outputPolygon(std::ofstream& fout, vector<Shape*>::iterator it) {
@@ -137,10 +137,10 @@ void outputPolygon(std::ofstream& fout, vector<Shape*>::iterator it) {
     fout << "PenCapStyle: " << penCapStyle << endl;
     fout << "PenJoinStyle: " << penJoinStyle << endl;
     fout << "BrushColor: " << brushColor << endl;
-    fout << "BrushStyle: " << brushStyle << endl;
+    fout << "BrushStyle: " << brushStyle << endl << endl;
 }
 
-void outputRectangle(std::ofstream fout, vector<Shape*>::iterator it) {
+void outputRectangle(std::ofstream& fout, vector<Shape*>::iterator it) {
     QPen pen = (*it)->get_pen();
     QBrush brush = (*it)->get_brush();
 
@@ -165,10 +165,10 @@ void outputRectangle(std::ofstream fout, vector<Shape*>::iterator it) {
     fout << "PenCapStyle: " << penCapStyle << endl;
     fout << "PenJoinStyle: " << penJoinStyle << endl;
     fout << "BrushColor: " << brushColor << endl;
-    fout << "BrushStyle: " << brushStyle << endl;
+    fout << "BrushStyle: " << brushStyle << endl << endl;
 }
 
-void outputSquare(std::ofstream fout, vector<Shape*>::iterator it) {
+void outputSquare(std::ofstream& fout, vector<Shape*>::iterator it) {
     QPen pen = (*it)->get_pen();
     QBrush brush = (*it)->get_brush();
 
@@ -192,10 +192,10 @@ void outputSquare(std::ofstream fout, vector<Shape*>::iterator it) {
     fout << "PenCapStyle: " << penCapStyle << endl;
     fout << "PenJoinStyle: " << penJoinStyle << endl;
     fout << "BrushColor: " << brushColor << endl;
-    fout << "BrushStyle: " << brushStyle << endl;
+    fout << "BrushStyle: " << brushStyle << endl << endl;
 }
 
-void outputEllipse(std::ofstream fout, vector<Shape*>::iterator it) {
+void outputEllipse(std::ofstream& fout, vector<Shape*>::iterator it) {
     QPen pen = (*it)->get_pen();
     QBrush brush = (*it)->get_brush();
 
@@ -220,10 +220,10 @@ void outputEllipse(std::ofstream fout, vector<Shape*>::iterator it) {
     fout << "PenCapStyle: " << penCapStyle << endl;
     fout << "PenJoinStyle: " << penJoinStyle << endl;
     fout << "BrushColor: " << brushColor << endl;
-    fout << "BrushStyle: " << brushStyle << endl;
+    fout << "BrushStyle: " << brushStyle << endl << endl;
 }
 
-void outputCircle(std::ofstream fout, vector<Shape*>::iterator it) {
+void outputCircle(std::ofstream& fout, vector<Shape*>::iterator it) {
     QPen pen = (*it)->get_pen();
     QBrush brush = (*it)->get_brush();
 
@@ -247,10 +247,10 @@ void outputCircle(std::ofstream fout, vector<Shape*>::iterator it) {
     fout << "PenCapStyle: " << penCapStyle << endl;
     fout << "PenJoinStyle: " << penJoinStyle << endl;
     fout << "BrushColor: " << brushColor << endl;
-    fout << "BrushStyle: " << brushStyle << endl;
+    fout << "BrushStyle: " << brushStyle << endl << endl;
 }
 
-void outputText(std::ofstream fout, vector<Shape*>::iterator it) {
+void outputText(std::ofstream& fout, vector<Shape*>::iterator it) {
     QFont font = (*it)->get_font();
 
     std::string textString = (*it)->getTextString().toStdString();
@@ -262,7 +262,7 @@ void outputText(std::ofstream fout, vector<Shape*>::iterator it) {
     std::string textFontWeight = QMetaEnum::fromType<QFont::Weight>().valueToKey(font.weight());
 
     fout << "ShapeId: " << (*it)->get_id() << endl;
-    fout << "ShapeType: Ellipse" << endl;
+    fout << "ShapeType: Text" << endl;
     fout << "ShapeDimensions: "
          << (*it)->getRect().topLeft().x() << ", "
          << (*it)->getRect().topLeft().y() << ", "
@@ -274,7 +274,7 @@ void outputText(std::ofstream fout, vector<Shape*>::iterator it) {
     fout << "TextPointSize: " << textPointSize << endl;
     fout << "TextFontFamily: " << textFontFamily << endl;
     fout << "TextFontStyle: " << textFontStyle << endl;
-    fout << "TextFontWeight: " << textFontWeight << endl;
+    fout << "TextFontWeight: " << textFontWeight << endl << endl;
 }
 
 #endif // SERIALIZER_H

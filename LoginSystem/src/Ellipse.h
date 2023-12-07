@@ -5,7 +5,6 @@
 
 class Ellipse : public Shape{
     public:
-        Ellipse(QPaintDevice * device, int id = -1) : Shape{device, id, ShapeType::Ellipse} { }
         Ellipse(int id = -1) : Shape{id, ShapeType::Ellipse} { }
         //~Ellipse() override { }
 

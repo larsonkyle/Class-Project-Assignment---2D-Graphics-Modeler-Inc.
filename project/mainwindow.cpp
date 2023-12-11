@@ -13,7 +13,8 @@
 #include <QMenu>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), renderArea(new RenderArea(this)) {
+    : QMainWindow(parent), renderArea(new RenderArea(this)),
+    contactUsForm(new ContactUs(this)), testimonialsWindow(new Testimonials(this)) {
 
     QWidget *centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);

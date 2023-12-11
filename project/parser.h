@@ -115,6 +115,22 @@ Line::ShapeType shapeStrToInt(const std::string s) {
     return Shape::ShapeType::NoShape;
 }
 
+AlignmentFlag getAlignmentFlagEnum(const std::string& textAlignment) {
+    if (textAlignment == "AlignLeft") {
+        return AlignLeft;
+    } else if (textAlignment == "AlignRight") {
+        return AlignRight;
+    } else if (textAlignment == "AlignTop") {
+        return AlignTop;
+    } else if (textAlignment == "AlignBottom") {
+        return AlignBottom;
+    } else if (textAlignment == "AlignCenter") {
+        return AlignCenter;
+    }
+
+    return AlignLeft;
+}
+
 void inputLine(std::ifstream& fin, const std::string shapeID, vector<Shape*> shapeVector) {
     std::string dim1;
     std::string dim2;
@@ -161,10 +177,10 @@ void inputLine(std::ifstream& fin, const std::string shapeID, vector<Shape*> sha
     p2.setX(stoi(dim3));
     p2.setY(stoi(dim4));
 
-    Qt::GlobalColor qtPenColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(penColor.c_str()));
-    Qt::PenStyle qtPenStyle = static_cast<Qt::PenStyle>((QMetaEnum::fromType<Qt::PenStyle>()).keyToValue(penStyle.c_str()));
-    Qt::PenCapStyle qtPenCapStyle = static_cast<Qt::PenCapStyle>((QMetaEnum::fromType<Qt::PenCapStyle>()).keyToValue(penCapStyle.c_str()));
-    Qt::PenJoinStyle qtPenJoinStyle = static_cast<Qt::PenJoinStyle>((QMetaEnum::fromType<Qt::PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
+    GlobalColor qtPenColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(penColor.c_str()));
+    PenStyle qtPenStyle = static_cast<PenStyle>((QMetaEnum::fromType<PenStyle>()).keyToValue(penStyle.c_str()));
+    PenCapStyle qtPenCapStyle = static_cast<PenCapStyle>((QMetaEnum::fromType<PenCapStyle>()).keyToValue(penCapStyle.c_str()));
+    PenJoinStyle qtPenJoinStyle = static_cast<PenJoinStyle>((QMetaEnum::fromType<PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
 
     Line* linePtr = new Line;
 
@@ -242,10 +258,10 @@ void inputPolyline(std::ifstream& fin, const std::string shapeID, vector<Shape*>
     p4.setX(stoi(dim7));
     p4.setY(stoi(dim8));
 
-    Qt::GlobalColor qtPenColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(penColor.c_str()));
-    Qt::PenStyle qtPenStyle = static_cast<Qt::PenStyle>((QMetaEnum::fromType<Qt::PenStyle>()).keyToValue(penStyle.c_str()));
-    Qt::PenCapStyle qtPenCapStyle = static_cast<Qt::PenCapStyle>((QMetaEnum::fromType<Qt::PenCapStyle>()).keyToValue(penCapStyle.c_str()));
-    Qt::PenJoinStyle qtPenJoinStyle = static_cast<Qt::PenJoinStyle>((QMetaEnum::fromType<Qt::PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
+    GlobalColor qtPenColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(penColor.c_str()));
+    PenStyle qtPenStyle = static_cast<PenStyle>((QMetaEnum::fromType<PenStyle>()).keyToValue(penStyle.c_str()));
+    PenCapStyle qtPenCapStyle = static_cast<PenCapStyle>((QMetaEnum::fromType<PenCapStyle>()).keyToValue(penCapStyle.c_str()));
+    PenJoinStyle qtPenJoinStyle = static_cast<PenJoinStyle>((QMetaEnum::fromType<PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
 
     Polyline* polylinePtr = new Polyline;
 
@@ -334,12 +350,12 @@ void inputPolygon(std::ifstream& fin, const std::string shapeID, vector<Shape*> 
     p4.setX(stoi(dim7));
     p4.setY(stoi(dim8));
 
-    Qt::GlobalColor qtPenColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(penColor.c_str()));
-    Qt::PenStyle qtPenStyle = static_cast<Qt::PenStyle>((QMetaEnum::fromType<Qt::PenStyle>()).keyToValue(penStyle.c_str()));
-    Qt::PenCapStyle qtPenCapStyle = static_cast<Qt::PenCapStyle>((QMetaEnum::fromType<Qt::PenCapStyle>()).keyToValue(penCapStyle.c_str()));
-    Qt::PenJoinStyle qtPenJoinStyle = static_cast<Qt::PenJoinStyle>((QMetaEnum::fromType<Qt::PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
-    Qt::GlobalColor qtBrushColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(brushColor.c_str()));
-    Qt::BrushStyle qtBrushStyle = static_cast<Qt::BrushStyle>((QMetaEnum::fromType<Qt::BrushStyle>()).keyToValue(brushStyle.c_str()));
+    GlobalColor qtPenColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(penColor.c_str()));
+    PenStyle qtPenStyle = static_cast<PenStyle>((QMetaEnum::fromType<PenStyle>()).keyToValue(penStyle.c_str()));
+    PenCapStyle qtPenCapStyle = static_cast<PenCapStyle>((QMetaEnum::fromType<PenCapStyle>()).keyToValue(penCapStyle.c_str()));
+    PenJoinStyle qtPenJoinStyle = static_cast<PenJoinStyle>((QMetaEnum::fromType<PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
+    GlobalColor qtBrushColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(brushColor.c_str()));
+    BrushStyle qtBrushStyle = static_cast<BrushStyle>((QMetaEnum::fromType<BrushStyle>()).keyToValue(brushStyle.c_str()));
 
     Polygon* polygonPtr = new Polygon;
 
@@ -407,12 +423,12 @@ void inputRectangle(std::ifstream& fin, const std::string shapeID, vector<Shape*
     p1.setX(stoi(dim1));
     p1.setY(stoi(dim2));
 
-    Qt::GlobalColor qtPenColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(penColor.c_str()));
-    Qt::PenStyle qtPenStyle = static_cast<Qt::PenStyle>((QMetaEnum::fromType<Qt::PenStyle>()).keyToValue(penStyle.c_str()));
-    Qt::PenCapStyle qtPenCapStyle = static_cast<Qt::PenCapStyle>((QMetaEnum::fromType<Qt::PenCapStyle>()).keyToValue(penCapStyle.c_str()));
-    Qt::PenJoinStyle qtPenJoinStyle = static_cast<Qt::PenJoinStyle>((QMetaEnum::fromType<Qt::PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
-    Qt::GlobalColor qtBrushColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(brushColor.c_str()));
-    Qt::BrushStyle qtBrushStyle = static_cast<Qt::BrushStyle>((QMetaEnum::fromType<Qt::BrushStyle>()).keyToValue(brushStyle.c_str()));
+    GlobalColor qtPenColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(penColor.c_str()));
+    PenStyle qtPenStyle = static_cast<PenStyle>((QMetaEnum::fromType<PenStyle>()).keyToValue(penStyle.c_str()));
+    PenCapStyle qtPenCapStyle = static_cast<PenCapStyle>((QMetaEnum::fromType<PenCapStyle>()).keyToValue(penCapStyle.c_str()));
+    PenJoinStyle qtPenJoinStyle = static_cast<PenJoinStyle>((QMetaEnum::fromType<PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
+    GlobalColor qtBrushColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(brushColor.c_str()));
+    BrushStyle qtBrushStyle = static_cast<BrushStyle>((QMetaEnum::fromType<BrushStyle>()).keyToValue(brushStyle.c_str()));
 
     Rectangle* rectanglePtr = new Rectangle;
     QRect r;
@@ -477,12 +493,12 @@ void inputSquare(std::ifstream& fin, const std::string shapeID, vector<Shape*> s
     p1.setX(stoi(dim1));
     p1.setY(stoi(dim2));
 
-    Qt::GlobalColor qtPenColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(penColor.c_str()));
-    Qt::PenStyle qtPenStyle = static_cast<Qt::PenStyle>((QMetaEnum::fromType<Qt::PenStyle>()).keyToValue(penStyle.c_str()));
-    Qt::PenCapStyle qtPenCapStyle = static_cast<Qt::PenCapStyle>((QMetaEnum::fromType<Qt::PenCapStyle>()).keyToValue(penCapStyle.c_str()));
-    Qt::PenJoinStyle qtPenJoinStyle = static_cast<Qt::PenJoinStyle>((QMetaEnum::fromType<Qt::PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
-    Qt::GlobalColor qtBrushColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(brushColor.c_str()));
-    Qt::BrushStyle qtBrushStyle = static_cast<Qt::BrushStyle>((QMetaEnum::fromType<Qt::BrushStyle>()).keyToValue(brushStyle.c_str()));
+    GlobalColor qtPenColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(penColor.c_str()));
+    PenStyle qtPenStyle = static_cast<PenStyle>((QMetaEnum::fromType<PenStyle>()).keyToValue(penStyle.c_str()));
+    PenCapStyle qtPenCapStyle = static_cast<PenCapStyle>((QMetaEnum::fromType<PenCapStyle>()).keyToValue(penCapStyle.c_str()));
+    PenJoinStyle qtPenJoinStyle = static_cast<PenJoinStyle>((QMetaEnum::fromType<PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
+    GlobalColor qtBrushColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(brushColor.c_str()));
+    BrushStyle qtBrushStyle = static_cast<BrushStyle>((QMetaEnum::fromType<BrushStyle>()).keyToValue(brushStyle.c_str()));
 
     Rectangle* squarePtr = new Rectangle;
     QRect s;
@@ -551,12 +567,12 @@ void inputEllipse(std::ifstream& fin, const std::string shapeID, vector<Shape*> 
     p1.setX(stoi(dim1));
     p1.setY(stoi(dim2));
 
-    Qt::GlobalColor qtPenColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(penColor.c_str()));
-    Qt::PenStyle qtPenStyle = static_cast<Qt::PenStyle>((QMetaEnum::fromType<Qt::PenStyle>()).keyToValue(penStyle.c_str()));
-    Qt::PenCapStyle qtPenCapStyle = static_cast<Qt::PenCapStyle>((QMetaEnum::fromType<Qt::PenCapStyle>()).keyToValue(penCapStyle.c_str()));
-    Qt::PenJoinStyle qtPenJoinStyle = static_cast<Qt::PenJoinStyle>((QMetaEnum::fromType<Qt::PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
-    Qt::GlobalColor qtBrushColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(brushColor.c_str()));
-    Qt::BrushStyle qtBrushStyle = static_cast<Qt::BrushStyle>((QMetaEnum::fromType<Qt::BrushStyle>()).keyToValue(brushStyle.c_str()));
+    GlobalColor qtPenColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(penColor.c_str()));
+    PenStyle qtPenStyle = static_cast<PenStyle>((QMetaEnum::fromType<PenStyle>()).keyToValue(penStyle.c_str()));
+    PenCapStyle qtPenCapStyle = static_cast<PenCapStyle>((QMetaEnum::fromType<PenCapStyle>()).keyToValue(penCapStyle.c_str()));
+    PenJoinStyle qtPenJoinStyle = static_cast<PenJoinStyle>((QMetaEnum::fromType<PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
+    GlobalColor qtBrushColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(brushColor.c_str()));
+    BrushStyle qtBrushStyle = static_cast<BrushStyle>((QMetaEnum::fromType<BrushStyle>()).keyToValue(brushStyle.c_str()));
 
     Ellipse* ellipsePtr = new Ellipse;
     QRect e;
@@ -621,12 +637,12 @@ void inputCircle(std::ifstream& fin, const std::string shapeID, vector<Shape*> s
     p1.setX(stoi(dim1));
     p1.setY(stoi(dim2));
 
-    Qt::GlobalColor qtPenColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(penColor.c_str()));
-    Qt::PenStyle qtPenStyle = static_cast<Qt::PenStyle>((QMetaEnum::fromType<Qt::PenStyle>()).keyToValue(penStyle.c_str()));
-    Qt::PenCapStyle qtPenCapStyle = static_cast<Qt::PenCapStyle>((QMetaEnum::fromType<Qt::PenCapStyle>()).keyToValue(penCapStyle.c_str()));
-    Qt::PenJoinStyle qtPenJoinStyle = static_cast<Qt::PenJoinStyle>((QMetaEnum::fromType<Qt::PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
-    Qt::GlobalColor qtBrushColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(brushColor.c_str()));
-    Qt::BrushStyle qtBrushStyle = static_cast<Qt::BrushStyle>((QMetaEnum::fromType<Qt::BrushStyle>()).keyToValue(brushStyle.c_str()));
+    GlobalColor qtPenColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(penColor.c_str()));
+    PenStyle qtPenStyle = static_cast<PenStyle>((QMetaEnum::fromType<PenStyle>()).keyToValue(penStyle.c_str()));
+    PenCapStyle qtPenCapStyle = static_cast<PenCapStyle>((QMetaEnum::fromType<PenCapStyle>()).keyToValue(penCapStyle.c_str()));
+    PenJoinStyle qtPenJoinStyle = static_cast<PenJoinStyle>((QMetaEnum::fromType<PenJoinStyle>()).keyToValue(penJoinStyle.c_str()));
+    GlobalColor qtBrushColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(brushColor.c_str()));
+    BrushStyle qtBrushStyle = static_cast<BrushStyle>((QMetaEnum::fromType<BrushStyle>()).keyToValue(brushStyle.c_str()));
 
     Ellipse* circlePtr = new Ellipse;
     QRect c;
@@ -697,8 +713,8 @@ void inputText(std::ifstream& fin, const std::string shapeID, vector<Shape*> sha
     p1.setX(stoi(dim1));
     p1.setY(stoi(dim2));
 
-    Qt::AlignmentFlag qtTextAlignment = static_cast<Qt::AlignmentFlag>((QMetaEnum::fromType<Qt::AlignmentFlag>()).keyToValue(textAlignment.c_str()));
-    Qt::GlobalColor qtTextColor = static_cast<Qt::GlobalColor>((QMetaEnum::fromType<Qt::GlobalColor>()).keyToValue(textColor.c_str()));
+    AlignmentFlag qtTextAlignment = getAlignmentFlagEnum(textAlignment);
+    GlobalColor qtTextColor = static_cast<GlobalColor>((QMetaEnum::fromType<GlobalColor>()).keyToValue(textColor.c_str()));
     QFont::Style qtTextFontStyle = static_cast<QFont::Style>((QMetaEnum::fromType<QFont::Style>()).keyToValue(textFontStyle.c_str()));
     QFont::Weight qtTextFontWeight = static_cast<QFont::Weight>((QMetaEnum::fromType<QFont::Weight>()).keyToValue(textFontWeight.c_str()));
 

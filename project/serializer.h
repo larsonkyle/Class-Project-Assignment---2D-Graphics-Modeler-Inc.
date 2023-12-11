@@ -58,6 +58,22 @@ void writeShapes(vector<Shape*> shapeVector) {
     fout.close();
 }
 
+std::string getAlignmentFlagString(AlignmentFlag alignmentFlag) {
+    if (alignmentFlag == Qt::AlignLeft) {
+        return "AlignLeft";
+    } else if (alignmentFlag == Qt::AlignRight) {
+        return "AlignRight";
+    } else if (alignmentFlag == Qt::AlignTop) {
+        return "AlignTop";
+    } else if (alignmentFlag == Qt::AlignBottom) {
+        return "AlignBottom";
+    } else if (alignmentFlag == Qt::AlignCenter) {
+        return "AlignCenter";
+    }
+
+    return "Unknown Alignment";
+}
+
 void outputLine(std::ofstream& fout, vector<Shape*>::iterator it) {
     QPen pen = (*it)->get_pen();
 
@@ -255,7 +271,7 @@ void outputText(std::ofstream& fout, vector<Shape*>::iterator it) {
 
     std::string textString = (*it)->getTextString().toStdString();
     std::string textColor = (*it)->getTextColor().name().toStdString();
-    std::string textAlignment = QMetaEnum::fromType<AlignmentFlag>().valueToKey((*it)->getAlign());
+    std::string textAlignment = getAlignmentFlagString((*it)->getAlign());
     std::string textPointSize = std::to_string(font.pointSize());
     std::string textFontFamily = font.family().toStdString();
     std::string textFontStyle = QMetaEnum::fromType<QFont::Style>().valueToKey(font.style());

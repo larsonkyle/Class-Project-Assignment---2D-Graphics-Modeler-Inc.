@@ -1,41 +1,27 @@
 #include "Polyline.h"
 
-//Polyline::Polyline(QPaintDevice* device = nullptr, int id = -1) : Shape{device, id, ShapeType::Polyline} {}
-
 void Polyline::set_point(const QPoint& point){
     points.push_back(point);
 }
 
-const vector<QPoint>& Polyline::getPoints() const{
-    return points;
-}
-void Polyline::draw(QPainter* painter) {
-    if (!painter) return;
+void Polyline::draw(QPaintDevice* device){
+    QPainter& painter = get_qpainter();
+    painter.begin(device);
 
-    painter->setPen(get_pen());
-    painter->setBrush(get_brush());
+    painter.setPen(get_pen());
+    painter.setBrush(get_brush());
 
-    painter->drawPolyline(points.begin(), points.size());
-}
+    painter.drawPolyline(points.begin(), points.size());
 
-
-void Polyline::move(int x, int y, int vertex)
-{
-    QPoint temp(x , y);
-    points[vertex - 1] = temp;
+    painter.end();
 }
 
-void Polyline::setNumberPoints(int numberPoints)
-{
-    numberPoints = numberPoints;
-}
-int Polyline::getNumberPoints() const
-{
-    return numberPoints;
-}
+void Polyline::move(int t_x, int t_y) {
+    QPoint new_point = QPoint(t_x, t_y);
 
-double Polyline::distanceFromLineToPoint(const QPoint &a, const QPoint &b, const QPoint &p) const {
-    // Calculate the distance of point p from line segment (a, b)
-    double norm = std::hypot(b.x() - a.x(), b.y() - a.y());
-    return std::abs((p.y() - a.y()) * (b.x() - a.x()) - (p.x() - a.x()) * (b.y() - a.y())) / norm;
+    for (int i = 1; i < points.size(); i++) {
+        points[i] += new_point - points[0];
+    }
+
+    points[0] = new_point;
 }

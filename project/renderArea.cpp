@@ -14,8 +14,8 @@ QSize RenderArea::sizeHint() const {
     return QSize(1000, 500);
 }
 
-void RenderArea::addShape(std::unique_ptr<Shape> shape) {
-    shapeChoices.push_back(std::move(shape));
+void RenderArea::addShape(Shape* shape) {
+    shapeChoices.push_back(shape);
     numberOfShapes++;
     update();
 }
@@ -24,19 +24,23 @@ int RenderArea::getNumOfShapes() const {
     return numberOfShapes;
 }
 
+vector<Shape*>& RenderArea::get_vector() {
+    return shapeChoices;
+}
+
 void RenderArea::paintEvent(QPaintEvent *event) {
-    QPainter painter(this);
+    QPaintDevice* device(this);
     for (auto &shape : shapeChoices) {
         if (shape) {
-            shape->draw(&painter);
+            shape->draw(device);
         }
     }
 }
 
 void RenderArea::mousePressEvent(QMouseEvent *event) {
-    for (auto it = shapeChoices.rbegin(); it != shapeChoices.rend(); ++it) {
+    for (auto it = shapeChoices.begin(); it != shapeChoices.end(); ++it) {
         if ((*it)->getRect().contains(event->pos())) {
-            selectedShape = it->get();
+            selectedShape = *it;
             lastMousePosition = event->pos();
             break;
         }
@@ -46,7 +50,7 @@ void RenderArea::mousePressEvent(QMouseEvent *event) {
 void RenderArea::mouseMoveEvent(QMouseEvent *event) {
     if (selectedShape) {
         QPoint delta = event->pos() - lastMousePosition;
-        selectedShape->move(delta.x(), delta.y(), 0);
+        selectedShape->move(delta.x(), delta.y());
         lastMousePosition = event->pos();
         update();
     }

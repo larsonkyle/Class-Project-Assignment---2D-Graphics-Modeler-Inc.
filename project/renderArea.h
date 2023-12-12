@@ -13,8 +13,9 @@ public:
     explicit RenderArea(QWidget *parent = nullptr);
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
-    void addShape(std::unique_ptr<Shape> shape);
+    void addShape(Shape* shape);
     int getNumOfShapes() const;
+    vector<Shape*>& get_vector();
 
 protected:
     void paintEvent(QPaintEvent *event) override;
@@ -22,8 +23,9 @@ protected:
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
 
+
 private:
-    std::vector<std::unique_ptr<Shape>> shapeChoices;
+    vector<Shape*> shapeChoices;
     Shape *selectedShape;
     QPoint lastMousePosition;
     int numberOfShapes;

@@ -7,27 +7,19 @@ class Rectangle : public Shape{
 public:
     Rectangle(QPaintDevice * device, int id = -1) : Shape{device, id, ShapeType::Rectangle} { }
     Rectangle() : Shape{nullptr, -1, ShapeType::Rectangle} {}
-
     ~Rectangle() override {}
 
     bool isSquare() const;
-    void set_rect(const QRect& rect);
-    const vector<QPoint>& getPoints() const;
+    void set_rect(const QRect& new_rect) {rect = new_rect;}
+    QRect getRect() override {return rect;}
 
-    void move(int x, int y, int vertex) override;
-    void draw(QPainter *painter) override;
-    void setLocation(int x, int y);
-    void setDimensions(double w, double h);
-    double getWidth();
-    double getHeight();
-    QPoint& getLocation();
+    void draw(QPaintDevice* device) override;
+    void move(int translate_x, int translate_y) override;
+    double getPerimeter() override {return (2 * rect.width() + 2 * rect.height());}
+    double getArea() override {return rect.width() * rect.height();}
 
 private:
-    vector<QPoint> points; //QRect rect;
-    double width;
-    double height;
     QRect rect;
-    QPoint location;
 };
 
 #endif

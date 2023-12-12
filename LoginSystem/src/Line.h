@@ -23,5 +23,4 @@ class Line : public Shape{
 		QPoint point_end;
 };
 
-
 #endif

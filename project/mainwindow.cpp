@@ -1,16 +1,5 @@
 #include "mainwindow.h"
-#include <QVBoxLayout>
-#include "Line.h"
-#include "Ellipse.h"
-#include "Polygon.h"
-#include "Polyline.h"
-#include "Rectangle.h"
-#include "loginwindow.h"
-#include "text.h"
-#include "contactus.h"
-#include "testimonials.h"
-#include <QMenuBar>
-#include <QMenu>
+#include "parser.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), renderArea(new RenderArea(this)),
@@ -59,6 +48,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(polylineButton, &QPushButton::clicked, this, &MainWindow::on_polylineButton_clicked);
     connect(rectangleButton, &QPushButton::clicked, this, &MainWindow::on_rectangleButton_clicked);
     connect(textButton, &QPushButton::clicked, this, &MainWindow::on_textButton_clicked);
+
+    getShapes(*renderArea);
 }
 
 MainWindow::~MainWindow() {
@@ -67,50 +58,50 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::on_lineButton_clicked() {
-    auto line = std::make_unique<Line>();
+    auto line = new Line;
     line->set_point(QPoint(20, 20), QPoint(200, 200));
     renderArea->addShape(std::move(line));
     renderArea->update();
 }
 
 void MainWindow::on_ellipseButton_clicked() {
-    auto ellipse = std::make_unique<Ellipse>();
+    auto ellipse = new Ellipse;
     ellipse->set_ellipse(QRect(100, 100, 200, 100));
     renderArea->addShape(std::move(ellipse));
     renderArea->update();
 }
 
 void MainWindow::on_polygonButton_clicked() {
-    auto polygon = std::make_unique<Polygon>();
+    auto polygon = new Polygon;
     QVector<QPoint> points = { QPoint(20, 20), QPoint(200, 20), QPoint(200, 200), QPoint(20, 200) };
     for (auto &point : points) {
         polygon->set_point(point);
     }
-    polygon->setNumVertices(points.size());
+    //polygon->setNumVertices(points.size());
     renderArea->addShape(std::move(polygon));
     renderArea->update();
 }
 
 void MainWindow::on_polylineButton_clicked() {
-    auto polyline = std::make_unique<Polyline>();
+    auto polyline = new Polyline;
     QVector<QPoint> points = { QPoint(20, 20), QPoint(200, 20), QPoint(200, 200) };
     for (auto &point : points) {
         polyline->set_point(point);
     }
-    polyline->setNumberPoints(points.size());
+    //polyline->setNumberPoints(points.size());
     renderArea->addShape(std::move(polyline));
     renderArea->update();
 }
 
 void MainWindow::on_rectangleButton_clicked() {
-    auto rectangle = std::make_unique<Rectangle>();
+    auto rectangle = new Rectangle;
     rectangle->set_rect(QRect(150, 150, 300, 300));
     renderArea->addShape(std::move(rectangle));
     renderArea->update();
 }
 
 void MainWindow::on_textButton_clicked() {
-    auto text = std::make_unique<Text>();
+    auto text = new Text;
     text->set_text(QRect(30, 30, 600, 150), "Example Text", QColor(Qt::black), Qt::AlignCenter, 12, "Arial", QFont::StyleNormal, QFont::Normal);
     renderArea->addShape(std::move(text));
     renderArea->update();

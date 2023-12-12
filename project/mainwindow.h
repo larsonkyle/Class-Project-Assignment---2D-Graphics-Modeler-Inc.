@@ -4,10 +4,25 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include "renderArea.h"
+#include <QVBoxLayout>
+#include "Shape.h"
+#include "Line.h"
+#include "Ellipse.h"
+#include "Polygon.h"
+#include "Polyline.h"
+#include "Rectangle.h"
+#include "loginwindow.h"
+#include "text.h"
+#include "contactus.h"
+#include "testimonials.h"
+#include <QMenuBar>
+#include <QMenu>
 
 class LoginWindow;
 class ContactUs;
 class Testimonials;
+
+namespace Ui { class MainWindow; }
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -29,6 +44,7 @@ private slots:
     //void showDrawingArea();
 
 private:
+    Ui::MainWindow *ui;
     RenderArea *renderArea;
     QPushButton *lineButton;
     QPushButton *ellipseButton;

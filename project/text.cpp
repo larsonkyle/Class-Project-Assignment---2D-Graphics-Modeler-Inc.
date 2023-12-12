@@ -1,10 +1,10 @@
-#include "text.h"
+#include "Text.h"
 
 void Text::set_text(const QRect& tO, const QString t, const QColor c, const Qt::AlignmentFlag a,
                     const int pS, const QString f, const QFont::Style s, const QFont::Weight w)
 {
-    // Set the rectangle for the text
-    rect = tO;
+    // Set the textBoxangle for the text
+    textBox = tO;
     text = t;
     color  = c;
     align = a;
@@ -19,26 +19,20 @@ void Text::set_text(const QRect& tO, const QString t, const QColor c, const Qt::
     font.setWeight(weight);
 }
 
-const QFont& Text::get_font() const{
-    return font;
-}
-
-void Text::draw(QPainter* painter) {
-    if (!painter) return;
-
-    painter->setFont(font);
-    painter->setPen(color);
-
-    painter->drawText(rect, align, text);
-}
-
-void Text::move(const int x, const int y, int junk)
+void Text::draw(QPaintDevice* device)
 {
-    QPoint temp(x, y);
-    location = temp;
+    QPainter& painter = get_qpainter();
+    painter.begin(device);
+
+    painter.setFont(font);
+    painter.setPen(color);
+
+    painter.drawText(textBox, align, text);
+
+    painter.end();
 }
-void Text::setLocation(int x, int y)
-{
-    location.setX(x);
-    location.setY(y);
+
+void Text::move(int t_x, int t_y) {
+    QPoint new_point = QPoint(t_x, t_y);
+    textBox.moveTopLeft(new_point);
 }

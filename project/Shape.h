@@ -17,11 +17,8 @@ class Shape{
 public:
     enum ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Square, Ellipse, Circle, Text};
 
-    Shape(QPaintDevice * device, int id = -1, ShapeType shape = ShapeType::NoShape);
+    Shape(QPaintDevice* device = nullptr, int id = -1, ShapeType shape = ShapeType::NoShape);
     virtual ~Shape() {}
-    //Deliverable: Must suppress copy operations
-    Shape(const Shape&)            = delete;//copy constructor
-    Shape& operator=(const Shape&) = delete;//copy assignment
 
     int get_id() const;
     ShapeType get_shape() const;
@@ -36,8 +33,10 @@ public:
 
     void default_style();
 
-    virtual void draw(QPainter *painter) = 0;
-    virtual void move(int x, int y, int vertex) = 0;
+    virtual void draw(QPaintDevice* device) = 0;
+    virtual void move(int translate_x, int translate_y) = 0;
+    virtual double getPerimeter() = 0;
+    virtual double getArea() = 0;
 
     virtual QPoint getPointBegin() {return QPoint(0,0);}
     virtual QPoint getPointEnd() {return QPoint(0,0);}
@@ -56,7 +55,6 @@ public:
     bool operator<(const Shape& right);
     //Preconditions: a Shape type with a valid ID
     //Postconditions: will return true/false of whether left Shape's ID is less than right Shape's ID
-
 
 protected:
     QPainter& get_qpainter();

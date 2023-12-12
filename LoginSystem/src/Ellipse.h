@@ -19,9 +19,6 @@ class Ellipse : public Shape{
 
     private:
         QRect ellipse;
-        double width;
-        double height;
-        QPoint location;
 };
 
 #endif

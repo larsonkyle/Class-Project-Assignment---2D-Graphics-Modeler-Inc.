@@ -18,7 +18,6 @@ class Polyline : public Shape{
 
 	private:
 		vector<QPoint> points;
-
 };
 
 #endif

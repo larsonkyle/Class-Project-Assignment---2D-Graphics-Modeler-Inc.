@@ -33,7 +33,7 @@ void getShapes(RenderArea &canvas) {
 
     std::ifstream fin;
 
-    fin.open("C:/Users/Andre/OneDrive/Desktop/Saddleback/CS_GitAndQt/Class-Project-Assignment---2D-Graphics-Modeler-Inc/project/shapes.txt");
+    fin.open("shapes.txt");
 
     if (!fin) {
         std::cout << "Error - file could not be opened";

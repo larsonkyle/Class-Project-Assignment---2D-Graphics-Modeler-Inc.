@@ -55,3 +55,7 @@ void RenderArea::mouseMoveEvent(QMouseEvent *event) {
 void RenderArea::mouseReleaseEvent(QMouseEvent *event) {
     selectedShape = nullptr;
 }
+
+std::vector<std::unique_ptr<Shape>>& RenderArea::get_vector(){
+    return shapeChoices;
+}

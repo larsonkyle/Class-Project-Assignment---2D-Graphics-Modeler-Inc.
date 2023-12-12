@@ -14,6 +14,8 @@ public:
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
     void addShape(std::unique_ptr<Shape> shape);
+    std::vector<std::unique_ptr<Shape>>& get_vector();
+
     int getNumOfShapes() const;
 
 protected:

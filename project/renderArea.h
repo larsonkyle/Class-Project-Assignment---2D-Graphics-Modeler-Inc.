@@ -15,7 +15,6 @@ public:
     QSize sizeHint() const override;
     void addShape(Shape* shape);
     int getNumOfShapes() const;
-    vector<Shape*>& get_vector();
 
 protected:
     void paintEvent(QPaintEvent *event) override;

@@ -24,10 +24,6 @@ int RenderArea::getNumOfShapes() const {
     return numberOfShapes;
 }
 
-vector<Shape*>& RenderArea::get_vector() {
-    return shapeChoices;
-}
-
 void RenderArea::paintEvent(QPaintEvent *event) {
     QPaintDevice* device(this);
     for (auto &shape : shapeChoices) {

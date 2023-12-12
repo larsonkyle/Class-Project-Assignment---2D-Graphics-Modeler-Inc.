@@ -1,0 +1,20 @@
+# ninja log v5
+2	1571	7241057032311487	project_autogen/timestamp	b165d9d8a67ef398
+2	1571	7241057032311487	project_autogen/mocs_compilation.cpp	b165d9d8a67ef398
+2	1571	7241057032311487	C:/Users/Andre/OneDrive/Desktop/Saddleback/CS_GitAndQt/Class-Project-Assignment---2D-Graphics-Modeler-Inc/build-project-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/project_autogen/timestamp	b165d9d8a67ef398
+2	1571	7241057032311487	C:/Users/Andre/OneDrive/Desktop/Saddleback/CS_GitAndQt/Class-Project-Assignment---2D-Graphics-Modeler-Inc/build-project-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/project_autogen/mocs_compilation.cpp	b165d9d8a67ef398
+1603	5353	7241057072394258	CMakeFiles/project.dir/Shape.cpp.obj	361385cf704e0239
+1595	5569	7241057075065226	CMakeFiles/project.dir/Ellipse.cpp.obj	85947bcadf36d025
+1599	5571	7241057075085235	CMakeFiles/project.dir/Line.cpp.obj	153dc1d423cdd214
+1657	5710	7241057076626655	CMakeFiles/project.dir/text.cpp.obj	6548b7e2c7d630b9
+1572	6005	7241057079716583	CMakeFiles/project.dir/project_autogen/mocs_compilation.cpp.obj	7c42eb095bcafbc5
+1607	6100	7241057080688658	CMakeFiles/project.dir/testimonials.cpp.obj	2b3b62b347f941c1
+1581	6176	7241057081238675	CMakeFiles/project.dir/contactus.cpp.obj	38ec40cc05b5702f
+1625	6724	7241057087012961	CMakeFiles/project.dir/Polygon.cpp.obj	6b6501b11574718b
+1612	6921	7241057088916354	CMakeFiles/project.dir/Rectangle.cpp.obj	892552f690132ce
+1646	7307	7241057092860487	CMakeFiles/project.dir/Polyline.cpp.obj	b793dc34c726dcd2
+1585	7592	7241057095713607	CMakeFiles/project.dir/loginwindow.cpp.obj	323de62df8a6fd11
+1651	7865	7241057098445259	CMakeFiles/project.dir/renderArea.cpp.obj	86f0be3130664540
+1577	7907	7241057098855251	CMakeFiles/project.dir/main.cpp.obj	bfb7e6def4fe6fad
+1589	8572	7241057105490821	CMakeFiles/project.dir/mainwindow.cpp.obj	d336e9ca5675c636
+8572	9328	7241057112968920	project.exe	40673e0871e2df08

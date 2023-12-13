@@ -33,7 +33,7 @@ void getShapes(RenderArea &canvas) {
 
     std::ifstream fin;
 
-    fin.open("shapes.txt");
+    fin.open("../project/shapes.txt");
 
     if (!fin) {
         std::cout << "Error - file could not be opened";

@@ -725,10 +725,12 @@ void inputText(std::ifstream& fin, const std::string shapeID, RenderArea &canvas
     t.setHeight(stoi(dim3));
     t.setWidth(stoi(dim4));
 
-    textPtr->set_text(t, QString(textString.c_str()), QColor(qtTextColor), qtTextAlignment,
-                      stoi(textPointSize), QString(textFontFamily.c_str()), qtTextFontStyle, qtTextFontWeight);
+    textPtr->set_textBox(t);
     textPtr->set_shape(Shape::ShapeType::Text);
     textPtr->set_id(stoi(shapeID));
+    textPtr->set_pen(qtTextColor);
+    textPtr->set_font(stoi(textPointSize), textFontFamily, qtTextFontStyle, qtTextFontWeight);
+    textPtr->set_text(textString, qtTextAlignment);
 
     canvas.addShape(textPtr);
 }

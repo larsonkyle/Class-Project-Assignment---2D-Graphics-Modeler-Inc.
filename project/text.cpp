@@ -1,22 +1,9 @@
 #include "Text.h"
 
-void Text::set_text(const QRect& tO, const QString t, const QColor c, const Qt::AlignmentFlag a,
-                    const int pS, const QString f, const QFont::Style s, const QFont::Weight w)
+void Text::set_text(const std::string t, const Qt::AlignmentFlag a)
 {
-    // Set the textBoxangle for the text
-    textBox = tO;
-    text = t;
-    color  = c;
+    text = QString(t.c_str());
     align = a;
-    pointSize = pS;
-    family = f;
-    style = s;
-    weight = w;
-
-    font.setFamily(family);
-    font.setStyle(style);
-    font.setPointSize(pointSize);
-    font.setWeight(weight);
 }
 
 void Text::draw(QPaintDevice* device)
@@ -25,7 +12,8 @@ void Text::draw(QPaintDevice* device)
     painter.begin(device);
 
     painter.setFont(font);
-    painter.setPen(color);
+
+    painter.setPen(get_pen());
 
     painter.drawText(textBox, align, text);
 

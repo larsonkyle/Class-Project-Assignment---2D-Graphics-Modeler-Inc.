@@ -15,6 +15,7 @@
 #include "text.h"
 #include "contactus.h"
 #include "testimonials.h"
+#include "loginwindow.h"
 #include <QMenuBar>
 #include <QMenu>
 
@@ -54,6 +55,7 @@ private:
     QPushButton *textButton;
     ContactUs *contactUsForm;
     Testimonials *testimonialsWindow;
+    LoginWindow *loginwindow;
 };
 
 #endif // MAINWINDOW_H

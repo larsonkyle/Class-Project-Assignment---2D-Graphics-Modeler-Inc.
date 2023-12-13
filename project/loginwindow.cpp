@@ -11,7 +11,7 @@ LoginWindow::~LoginWindow() {
     delete ui;
 }
 
-void LoginWindow::on_LoginButton_clicked() {
+void LoginWindow::on_Loginbutton_clicked() {
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
 

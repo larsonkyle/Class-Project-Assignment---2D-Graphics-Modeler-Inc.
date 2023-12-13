@@ -9,14 +9,20 @@ public:
     Text() : Shape{nullptr, -1, ShapeType::Text} {}
     ~Text() override {}
 
-    void set_text(const QRect& tO, const QString t, const QColor c, const AlignmentFlag a,
-                  const int pS, const QString f, const QFont::Style s, const QFont::Weight w);
+    void set_textBox(const QRect& new_textBox) {textBox = new_textBox;}
+    void set_font(const int pS, const std::string f, const QFont::Style s, const QFont::Weight w) {
+        font.setFamily(QString(f.c_str()));
+        font.setStyle(s);
+        font.setPointSize(pS);
+        font.setWeight(w);
+    }
+    void set_text(const std::string t, const AlignmentFlag a);
 
     QRect getRect() override {return textBox;}
     QFont get_font() override {return font;}
 
     QString getTextString() override {return text;}
-    QColor getTextColor() override {return color;}
+    QColor getTextColor() override {return get_pen().color();}
     AlignmentFlag getAlign() override {return align;}
 
     void draw(QPaintDevice* device) override;
@@ -26,14 +32,9 @@ public:
 
 private:
     QRect textBox;
-    QString text {"Class Project - 2D Graphics Modeler"};
-    QColor color {blue};
-    AlignmentFlag align {AlignCenter};
+    QString text;
+    AlignmentFlag align;
 
-    int pointSize {10};
-    QString family {"Comic Sans MS"};
-    QFont::Style style {QFont::StyleNormal};
-    QFont::Weight weight {QFont::Normal};
     QFont font; //in set_text, feed everything from above into here. Then give to qpainter.
 
 };

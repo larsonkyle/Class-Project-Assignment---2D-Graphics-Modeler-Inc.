@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>321</width>
+    <height>325</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -56,8 +56,8 @@ border-image:url(:/images/loginIcon.png);
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>160</y>
+      <x>30</x>
+      <y>10</y>
       <width>221</width>
       <height>71</height>
      </rect>
@@ -69,8 +69,8 @@ border-image:url(:/images/loginIcon.png);
    <widget class="QGroupBox" name="loginBox">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>230</y>
+      <x>20</x>
+      <y>80</y>
       <width>281</width>
       <height>231</height>
      </rect>
@@ -121,7 +121,7 @@ font: 14pt &quot;Segoe UI&quot;;
 color:rgba(115, 148, 139, 80)</string>
          </property>
          <property name="text">
-          <string>Enter Username</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -144,7 +144,7 @@ font: 14pt &quot;Segoe UI&quot;;
 color:rgba(115, 148, 139, 80)</string>
          </property>
          <property name="text">
-          <string>Enter Password</string>
+          <string/>
          </property>
         </widget>
        </item>

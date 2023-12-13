@@ -1,9 +1,11 @@
 #include "mainwindow.h"
 #include "parser.h"
+//#include "serializer.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), renderArea(new RenderArea(this)),
-    contactUsForm(new ContactUs(this)), testimonialsWindow(new Testimonials(this)) {
+    contactUsForm(new ContactUs(this)), testimonialsWindow(new Testimonials(this)),
+    loginwindow(new LoginWindow(this)) {
 
     QWidget *centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
@@ -11,18 +13,18 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Initialize buttons for menu-like options
    // QPushButton *drawShapesButton = new QPushButton(tr("Draw Shapes"), this);
-    QPushButton *loginButton = new QPushButton(tr("Login"), this);
+    QPushButton *Loginbutton = new QPushButton(tr("Login"), this);
     QPushButton *contactUsButton = new QPushButton(tr("Contact Us"), this);
     QPushButton *testimonialsButton = new QPushButton(tr("Testimonials"), this);
 
     //layout->addWidget(drawShapesButton);
-    layout->addWidget(loginButton);
+    layout->addWidget(Loginbutton);
     layout->addWidget(contactUsButton);
     layout->addWidget(testimonialsButton);
 
     // Connect button signals to slots
    // connect(drawShapesButton, &QPushButton::clicked, this, &MainWindow::showDrawingArea);
-    connect(loginButton, &QPushButton::clicked, this, &MainWindow::showLoginWindow);
+    connect(Loginbutton, &QPushButton::clicked, this, &MainWindow::showLoginWindow);
     connect(contactUsButton, &QPushButton::clicked, this, &MainWindow::showContactUs);
     connect(testimonialsButton, &QPushButton::clicked, this, &MainWindow::showTestimonials);
     // Initialize and add shape buttons
@@ -50,11 +52,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(textButton, &QPushButton::clicked, this, &MainWindow::on_textButton_clicked);
 
     getShapes(*renderArea);
+    //writeShapes(renderArea->getVector());
 }
 
 MainWindow::~MainWindow() {
     delete contactUsForm;
     delete testimonialsWindow;
+    delete loginwindow;
 }
 
 void MainWindow::on_lineButton_clicked() {
@@ -84,7 +88,7 @@ void MainWindow::on_polygonButton_clicked() {
 
 void MainWindow::on_polylineButton_clicked() {
     auto polyline = new Polyline;
-    QVector<QPoint> points = { QPoint(20, 20), QPoint(200, 20), QPoint(200, 200) };
+    QVector<QPoint> points = { QPoint(30, 30), QPoint(150, 30), QPoint(300, 150), QPoint(300, 300) };
     for (auto &point : points) {
         polyline->set_point(point);
     }
@@ -102,14 +106,16 @@ void MainWindow::on_rectangleButton_clicked() {
 
 void MainWindow::on_textButton_clicked() {
     auto text = new Text;
-    text->set_text(QRect(30, 30, 600, 150), "Example Text", QColor(Qt::black), Qt::AlignCenter, 12, "Arial", QFont::StyleNormal, QFont::Normal);
+    text->set_textBox(QRect(30, 30, 600, 150));
+    text->set_pen(Qt::blue);
+    text->set_font(12, "Arial", QFont::StyleNormal, QFont::Normal);
+    text->set_text("Example Text", Qt::AlignCenter);
     renderArea->addShape(std::move(text));
     renderArea->update();
 }
 
 void MainWindow::showLoginWindow() {
-    LoginWindow loginWin;
-    loginWin.show();
+    loginwindow->show();
 }
 
 void MainWindow::showContactUs() {

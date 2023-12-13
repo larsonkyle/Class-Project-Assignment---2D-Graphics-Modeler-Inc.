@@ -13,7 +13,7 @@ public:
     ~LoginWindow();
 
 private slots:
-    void on_LoginButton_clicked();
+    void on_Loginbutton_clicked();
     void on_pushButton_Guest_Sign_in_clicked();
 
 private:

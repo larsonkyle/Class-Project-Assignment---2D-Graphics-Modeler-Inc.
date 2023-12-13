@@ -1,0 +1,95 @@
+Daily ScrumLords Meeting Log
+
+October 24th
+  What have we worked on since the last meeting?
+    1. Began user stories and each person has been assigned at least one to complete.
+  What are we going to work on next?
+    2. We are going to finish user stories and begin assigning work to people.
+  Any blockers for anyone?
+    3. none
+October 26th
+  What have we worked on since the last meeting?
+    1. We have completed and submitted our User Stories.
+  What are we going to work on next?
+    2. We are working on assigning work. So far we have Siena doing login, Nadia and Marina doing vector_doubles, Andrew doing parser and the rest on shapes hierarchy.
+  Any blockers for anyone
+    3. none
+October 31st
+  What have we worked on since the last meeting?
+    1. Siena worked on Login and has a nice interface so far. Vector implementation has been started and so has parser.
+  What are we going to work on next?
+    2. We need to start shapes hierarchy and try and get our work done as soon as possible so we can begin frontend.
+  Any blockers for anyone
+    3. None as of now
+November 2nd
+  What have we worked on since the last meeting?
+    1. Parser and vector_doubles are completed. Shapes hierarchy has been started with header files mostly.
+  What are we going to work on next?
+    2. We need to get our shapes hierarchy done as soon as possible and assigning new work for people to do as we approach the end of sprint #1
+  Any blockers for anyone
+    3. Most people have exams in other classes.
+November 7th
+  What have we worked on since the last meeting?
+    1. We have everything done for sprint #1 except for the implementation of the shapes hierarchy.
+  What are we going to work on next?
+    2. We need to get shapes hierarchy completed and we need to reassign roles.
+  Any blockers for anyone
+    3. CS1C exam coming up
+November 9th (END of sprint #1)
+  1.  No meeting, Exam for CS1C
+November 14th
+  What have we worked on since the last meeting?
+    1. Shapes implementation has finally been completed. Roles are somewhat reassigned but we need to begin frontend work asap.
+  What are we going to work on next?
+    2. We need to finalize shapes hierarchy and work on testimonials and contact us page. Also begin renderArea class.
+  Any blockers for anyone
+    3. Exams and work for most in the group
+November 16th
+  What have we worked on since the last meeting?
+    1. Testimonial, contact us and logo have been created. RenderArea us still in progress and still unable to draw shapes.
+  What are we going to work on next?
+    2. Finish renderArea and begin implementing mainwindow to have a menu display to have our shapes on display
+  Any blockers for anyone
+    3. None as of now
+November 21st
+  What have we worked on since the last meeting?
+    1. renderArea us done, UML has been assigned and we are working on serializer now.
+  What are we going to work on next?
+    2. Need to integrate our login, contact us and testimonials into one so that we can properly display these to our users. Need to be able to draw shapes
+  Any blockers for anyone
+    3. Holiday weekend 
+November 28th
+  What have we worked on since the last meeting?
+    1. Serializer is completed and we have been working to create the menu with buttons to display so we can draw shapes.
+  What are we going to work on next?
+    2. Get our program to work so we can draw shapes and keep working on UML diagrams.
+  Any blockers for anyone
+    3. Transfer applications due, Work and Exams
+November 30th
+  What have we worked on since the last meeting?
+    1. Not much because we were overwhelmed with exams and work.
+  What are we going to work on next?
+    2. Get the serializer and UML diagram done and draw shapes needs to work by the next class.
+  Any blockers for anyone
+    3. none
+December 5th (end of sprint #2)
+  What have we worked on since the last meeting?
+    1. We are finally able to display a menu and draw simple shapes. We have a simple frontend now.
+  What are we going to work on next?
+    2. Need to make the program work so that users can choose coordinates and also our login page stopped working so we need to fix that. Also finish backlogs and run valgrind on our vector.
+  Any blockers for anyone
+    3. none
+December 7th
+  What have we worked on since the last meeting?
+    1. We can still only draw basic shapes, not much progress.
+  What are we going to work on next?
+    2. Need to get sprint and product backlog completed and adjust our main window and render area so we can have buttons to access contact us, testimonials and login. Our login still won’t work so we need to look into that. Need to read from parser.
+  Any blockers for anyone
+    3. A lot of members have more than one group project.
+December 12th 
+  What have we worked on since the last meeting?
+    1. Able to read from parser. Now have a menu that display buttons to draw shapes and also buttons for logging in, testimonials and contact us.
+  What are we going to work on next?
+    2. By midnight we need to finish the sprint and product backlog. Need to add a frontend bit that allows the user to enter shape coordinates. Our login is still having errors and we need to fix our logo so it displays to user.
+  Any blockers for anyone
+    3. Many have more than one project due at midnight, working through it to get work done.

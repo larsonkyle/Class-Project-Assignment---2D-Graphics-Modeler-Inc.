@@ -6,4 +6,6 @@ https://github.com/larsonkyle/Class-Project-Assignment---2D-Graphics-Modeler-Inc
 ** Daily Scrum Meeting ** is completed and on the github under projects
 
 ** Sprint Backlog ** is completed and on the github under projects
-**
+
+** Login function is fixed **
+
